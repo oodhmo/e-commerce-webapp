@@ -1,27 +1,36 @@
-# Logs
-logs
+# Node.js
+node_modules/
+dist/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Vite cache
+.vite/
+
+# Local environment variables
+.env
+.env.*.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+.vscode/
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# npm / yarn / pnpm lock files (선택)
+# 단일 패키지 매니저를 쓰는 경우 다른 파일은 명시적으로 제외
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
 
 # 프론트엔드 멘토 자료 무시
 ecommerce-product-page-main/
