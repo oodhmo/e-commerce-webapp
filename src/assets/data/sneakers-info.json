@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sn-001",
+    "name": "Fall Limited Edition Sneakers",
+    "description": "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    "price": "125.00",
+    "discount": "50",
+    "original_price": "250.00",
+    "prod_images": ["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"],
+    "thumbnails": ["image-product-1-thumbnail.jpg", "image-product-2-thumbnail.jpg", "image-product-3-thumbnail.jpg", "image-product-4-thumbnail.jpg"]
+  },
+  {
+    "id": "sn-002",
+    "name": "TealDan",
+    "description": "It represents a bold blend of vibrant teal and crisp white, offering both style and comfort in every step. Designed for those who dare to stand out, it balances sleek sophistication with a dynamic color pop.",
+    "price": "140.00",
+    "discount": "30",
+    "original_price": "200.00",
+    "prod_images": ["image-green-1.jpg", "image-green-2.jpg", "image-green-3.jpg"],
+    "thumbnails": ["image-green-1-thumbnail.jpg", "image-green-2-thumbnail.jpg", "image-green-3-thumbnail.jpg"]
+  },
+  {
+    "id": "sn-003",
+    "name": "ConStep",
+    "description": "It blends the iconic Converse design with a fresh, effortless vibe. Perfect for those who value timeless style and comfortable, everyday wear, it’s a step forward in classic footwear.",
+    "price": "60.00",
+    "discount": null,
+    "original_price": null,
+    "prod_images": ["image-converse-1.jpg", "image-converse-2.jpg", "image-converse-3.jpg", "image-converse-4.jpg"],
+    "thumbnails": ["image-converse-1-thumbnail.jpg", "image-converse-2-thumbnail.jpg", "image-converse-3-thumbnail.jpg", "image-converse-4-thumbnail.jpg"]
+  }
+]
