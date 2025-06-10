@@ -1,10 +1,15 @@
-import NavBar from "../components/NavBar";
+import NavBar from "@/components/NavBar";
 
-const MainLayout = () => {
+type Props = {
+  children: React.ReactNode;
+}
+
+const MainLayout = ({ children }: Props) => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <NavBar />
+      <main>{children}</main>
+    </>
   );
 };
 
