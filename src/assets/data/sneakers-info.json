@@ -6,27 +6,73 @@
     "price": "125.00",
     "discount": "50",
     "original_price": "250.00",
-    "prod_images": ["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"],
-    "thumbnails": ["image-product-1-thumbnail.jpg", "image-product-2-thumbnail.jpg", "image-product-3-thumbnail.jpg", "image-product-4-thumbnail.jpg"]
+    "gender": "unisex",
+    "image_pair": [
+      {
+        "prod_image": "image-product-1.jpg",
+        "thumb_image": "image-product-1-thumbnail.jpg"
+      },
+      {
+        "prod_image": "image-product-2.jpg",
+        "thumb_image": "image-product-2-thumbnail.jpg"
+      },
+      {
+        "prod_image": "image-product-3.jpg",
+        "thumb_image": "image-product-3-thumbnail.jpg"
+      },
+      {
+        "prod_image": "image-product-4.jpg",
+        "thumb_image": "image-product-4-thumbnail.jpg"
+      }
+    ]
   },
   {
     "id": "sn-002",
-    "name": "TealDan",
+    "name": "TealStep: The Vibrant Legacy Edition",
     "description": "It represents a bold blend of vibrant teal and crisp white, offering both style and comfort in every step. Designed for those who dare to stand out, it balances sleek sophistication with a dynamic color pop.",
     "price": "140.00",
     "discount": "30",
     "original_price": "200.00",
-    "prod_images": ["image-green-1.jpg", "image-green-2.jpg", "image-green-3.jpg"],
-    "thumbnails": ["image-green-1-thumbnail.jpg", "image-green-2-thumbnail.jpg", "image-green-3-thumbnail.jpg"]
+    "gender": "women",
+    "image_pair": [
+      {
+        "prod_image": "image-green-1.png",
+        "thumb_image": "image-green-1-thumbnail.png"
+      },
+      {
+        "prod_image": "image-green-2.png",
+        "thumb_image": "image-green-2-thumbnail.png"
+      },
+      {
+        "prod_image": "image-green-3.png",
+        "thumb_image": "image-green-3-thumbnail.png"
+      }
+    ]
   },
   {
     "id": "sn-003",
-    "name": "ConStep",
+    "name": "ConStep: The Urban Classic Edition",
     "description": "It blends the iconic Converse design with a fresh, effortless vibe. Perfect for those who value timeless style and comfortable, everyday wear, it’s a step forward in classic footwear.",
     "price": "60.00",
     "discount": null,
     "original_price": null,
-    "prod_images": ["image-converse-1.jpg", "image-converse-2.jpg", "image-converse-3.jpg", "image-converse-4.jpg"],
-    "thumbnails": ["image-converse-1-thumbnail.jpg", "image-converse-2-thumbnail.jpg", "image-converse-3-thumbnail.jpg", "image-converse-4-thumbnail.jpg"]
+    "image_pair": [
+      {
+        "prod_image": "image-converse-1.png",
+        "thumb_image": "image-converse-1-thumbnail.png"
+      },
+      {
+        "prod_image": "image-converse-2.png",
+        "thumb_image": "image-converse-2-thumbnail.png"
+      },
+      {
+        "prod_image": "image-converse-3.jpg",
+        "thumb_image": "image-converse-3-thumbnail.jpg"
+      },
+      {
+        "prod_image": "image-converse-4.jpg",
+        "thumb_image": "image-converse-4-thumbnail.jpg"
+      }
+    ]
   }
 ]
