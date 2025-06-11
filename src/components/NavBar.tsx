@@ -15,7 +15,10 @@ const NavBar = () => {
       <div className="nav-container">
         <div className="nav-content">
           <div className="nav-lft">
-            <div className="logo" onClick={() => handleGoToPage('/')}>
+            <div
+              className="logo"
+              onClick={() => handleGoToPage('/collections')}
+            >
               sneakers
             </div>
             <div className="menu">
