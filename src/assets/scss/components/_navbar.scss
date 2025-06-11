@@ -1,0 +1,81 @@
+@use '../abstracts/variables' as *;
+
+#navbar {
+  width: 100%;
+  height: 8rem;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  user-select: none;
+
+  .nav-container {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.575);
+    margin: 0 8rem;
+  }
+
+  .nav-content,
+  .nav-lft,
+  .nav-rgt,
+  .list,
+  li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-lft,
+  .nav-rgt {
+    flex-shrink: 0;
+  }
+
+  .nav-lft {
+    .logo {
+      font-weight: $fw-bold;
+      font-size: 3rem;
+      margin-right: 5rem;
+    }
+
+    .menu {
+      flex: 1 1 auto;
+      overflow: hidden;
+      height: 100%;
+
+      li {
+        margin: 0 1.6rem;
+        color: $neutral-grayish-blue;
+        transition: box-shadow 0.2s ease;
+
+        &:hover {
+          box-shadow: inset 0 -2px 0 0 $primary-orange;
+        }
+      }
+    }
+  }
+
+  .nav-rgt {
+    margin-left: auto;
+
+    .cart {
+      margin-right: 4.5rem;
+    }
+
+    img {
+      border-radius: 50%;
+      transition: box-shadow 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 0 0 2px $primary-orange;
+      }
+    }
+  }
+
+  .logo,
+  li,
+  .cart,
+  .avatar {
+    cursor: pointer;
+  }
+}

@@ -10,25 +10,39 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: $font-family-base;
-  font-size: $fs-default;
   font-weight: $fw-default;
   line-height: 1.5;
+  font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
+  background-color: white;
 }
 
-img, picture, video, canvas, svg {
+body {
+  font-size: $fs-default;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 

@@ -1,2 +1,3 @@
 @use './abstracts/index' as *;
-@use './base/index';
+@use './base/index' as base;
+@use './components/index' as components;
