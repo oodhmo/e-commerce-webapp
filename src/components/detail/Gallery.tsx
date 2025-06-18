@@ -1,23 +1,69 @@
-import { useParams } from 'react-router-dom';
-import sneakersList from '@/assets/data/sneakers-info.json';
+import { memo, useState, useMemo } from 'react';
+import { useImageLoader, useDetailImage } from '@/hooks/useImageLoader';
+import type { TImagePair } from '@/types/image';
+import type {
+  TGalleryProps,
+  TThumbListProps,
+  TProductListProps,
+} from '@/types/props';
 
-type ImagePair = {
-  prod_image: string[];
-  thumb_image: string[];
-};
+const ProdList = memo(({ list }: TProductListProps) => {
+  return (
+    <div className="prod-list">
+      {list.map((src, idx) => {
+        return <img src={src} key={idx} />;
+      })}
+    </div>
+  );
+});
 
-type Props = ImagePair[];
+const ThumbList = memo(
+  ({ list, setBigImage, setSelectedThumb }: TThumbListProps) => {
+    return (
+      <div className="thumb-list">
+        {list.map((src, idx) => {
+          return (
+            <img
+              src={src}
+              key={idx}
+              onClick={() => {
+                setBigImage(src);
+                setSelectedThumb(src);
+              }}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+);
 
-const getImages = (images: Props, id: string) => {};
+const Gallery = ({ images }: TGalleryProps) => {
+  const { imageMap: productMap } = useImageLoader('product');
+  const { imageMap: thumbMap } = useImageLoader('thumbnail');
 
-const Gallery = (images: Props) => {
-  const { id } = useParams<{ id: string }>();
+  const { prodImages, thumbImages } = useDetailImage(
+    images,
+    productMap,
+    thumbMap
+  );
 
+  const [bigImage, setBigImage] = useState<string>(prodImages[0]);
+  const [selectedThumb, setSelectedThumb] = useState<string>(thumbImages[0]);
+
+  console.log(prodImages, thumbImages);
   return (
     <div id="image-list">
       <div className="image-grid">
-        <div className="big-image">
-          <img />
+        <div className="big-container">
+          <ProdList list={prodImages} />
+        </div>
+        <div className="thumb-container">
+          <ThumbList
+            list={thumbImages}
+            setBigImage={setBigImage}
+            setSelectedThumb={setSelectedThumb}
+          />
         </div>
       </div>
     </div>
