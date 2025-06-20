@@ -1,35 +1,34 @@
-import { memo, useState, useMemo } from 'react';
+import { memo, useState } from 'react';
 import { useImageLoader, useDetailImage } from '@/hooks/useImageLoader';
-import type { TImagePair } from '@/types/image';
 import type {
   TGalleryProps,
   TThumbListProps,
   TProductListProps,
 } from '@/types/props';
 
-const ProdList = memo(({ list }: TProductListProps) => {
+const ProdList = memo(({ list, idx }: TProductListProps) => {
   return (
-    <div className="prod-list">
-      {list.map((src, idx) => {
-        return <img src={src} key={idx} />;
-      })}
+    <div className="slide-wrapper">
+      <div className="slider">
+        {list.map((src, i) => {
+          return <img src={src} key={i} className="prod" />;
+        })}
+      </div>
     </div>
   );
 });
 
 const ThumbList = memo(
-  ({ list, setBigImage, setSelectedThumb }: TThumbListProps) => {
+  ({ list, currentIdx, setCurrentIdx }: TThumbListProps) => {
     return (
       <div className="thumb-list">
-        {list.map((src, idx) => {
+        {list.map((src, i) => {
           return (
             <img
               src={src}
-              key={idx}
-              onClick={() => {
-                setBigImage(src);
-                setSelectedThumb(src);
-              }}
+              key={i}
+              className={`thumb ${currentIdx === i ? 'active' : ''}`}
+              onClick={() => setCurrentIdx(i)}
             />
           );
         })}
@@ -48,21 +47,19 @@ const Gallery = ({ images }: TGalleryProps) => {
     thumbMap
   );
 
-  const [bigImage, setBigImage] = useState<string>(prodImages[0]);
-  const [selectedThumb, setSelectedThumb] = useState<string>(thumbImages[0]);
+  const [currentIdx, setCurrentIdx] = useState(0);
 
-  console.log(prodImages, thumbImages);
   return (
     <div id="image-list">
       <div className="image-grid">
         <div className="big-container">
-          <ProdList list={prodImages} />
+          <ProdList list={prodImages} idx={currentIdx} />
         </div>
         <div className="thumb-container">
           <ThumbList
             list={thumbImages}
-            setBigImage={setBigImage}
-            setSelectedThumb={setSelectedThumb}
+            currentIdx={currentIdx}
+            setCurrentIdx={setCurrentIdx}
           />
         </div>
       </div>

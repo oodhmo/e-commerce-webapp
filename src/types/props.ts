@@ -1,16 +1,23 @@
 import type { TImagePairList } from './image';
+import type { TProductInfo } from './product';
 
 // commponents/detail/Gallery.tsx
-export type TGalleryProps = {
+export interface TGalleryProps {
   images: TImagePairList;
-};
+}
 
-export type TThumbListProps = {
+export interface TThumbListProps {
   list: string[];
-  setBigImage: (src: string) => void;
-  setSelectedThumb: (src: string) => void;
-};
+  currentIdx: number;
+  setCurrentIdx: (idx: number) => void;
+}
 
-export type TProductListProps = {
+export interface TProductListProps {
   list: string[];
-};
+  idx: number;
+}
+
+// commponents/detail/ProductDesc.tsx
+export interface TProductDescProps {
+  product: TProductInfo;
+}

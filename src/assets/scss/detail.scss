@@ -1,0 +1,7 @@
+@use './abstracts/variables' as *;
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}

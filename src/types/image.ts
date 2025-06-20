@@ -1,4 +1,4 @@
-export type TImagePair = {
+export interface TImagePair {
   prod_image: string;
   thumb_image: string;
 };

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { TImagePairList } from '@/types/image';
+import type { TImagePairList } from '@/types/image';
 
 const imageMaps = {
   product: import.meta.glob('../assets/images/product/*.{jpg,png}', {
