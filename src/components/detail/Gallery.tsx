@@ -9,7 +9,10 @@ import type {
 const ProdList = memo(({ list, idx }: TProductListProps) => {
   return (
     <div className="slide-wrapper">
-      <div className="slider">
+      <div
+        className="slider"
+        style={{ transform: `translateX(-${idx * 100}%)` }}
+      >
         {list.map((src, i) => {
           return <img src={src} key={i} className="prod" />;
         })}
@@ -24,12 +27,12 @@ const ThumbList = memo(
       <div className="thumb-list">
         {list.map((src, i) => {
           return (
-            <img
-              src={src}
-              key={i}
-              className={`thumb ${currentIdx === i ? 'active' : ''}`}
+            <div
+              className={`thumb-wrapper ${currentIdx === i ? 'active' : ''}`}
               onClick={() => setCurrentIdx(i)}
-            />
+            >
+              <img src={src} key={i} className="thumb" />
+            </div>
           );
         })}
       </div>
