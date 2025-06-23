@@ -2,4 +2,37 @@
 
 .prod-desc {
   background-color: white;
+
+  .company,
+  .description {
+    font-size: $fs-default;
+  }
+
+  .company,
+  .name,
+  .now {
+    font-weight: $fw-bold;
+  }
+
+  .description,
+  .origin {
+    color: $neutral-grayish-blue;
+  }
+
+  .company {
+    color: $primary-orange;
+  }
+
+  .name {
+    font-size: 4rem;
+    font-weight: $fw-bold;
+  }
+
+  .origin {
+    text-decoration: line-through;
+  }
+
+  .count-wrapper {
+    display: flex;
+  }
 }

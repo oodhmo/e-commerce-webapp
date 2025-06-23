@@ -1,23 +1,82 @@
-import type { TProductDescProps } from '@/types/props';
+import type {
+  TProductDescProps,
+  TProductCountProps,
+  TCartBtnProps,
+} from '@/types/props';
+import MinusBtnIcon from '@/components/icons/MinusBtnIcon';
+import PlusBtnIcon from '@/components/icons/PlusBtnIcon';
+import { useCartStore } from '@/stores/useCartStore';
+import { useState } from 'react';
+
+const CountSetter = ({ count, setCount }: TProductCountProps) => {
+  return (
+    <div className="count-wrapper">
+      <div className="count">
+        <div
+          className="minus"
+          onClick={() => {
+            if (count > 0) setCount(count - 1);
+          }}
+        >
+          <MinusBtnIcon />
+        </div>
+        <div className="num">{count}</div>
+        <div className="plus" onClick={() => setCount(count + 1)}>
+          <PlusBtnIcon />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CartBtn = ({ product, count }: TCartBtnProps) => {
+  const addCart = useCartStore(state => state.addCart);
+
+  const handleAddCartClick = () => {
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      mainImg: product.image_pair[0].thumb_image,
+      count: count,
+      totalPrice: Number(product.price) * count,
+    };
+
+    addCart(cartItem);
+  };
+
+  return (
+    <div className="cart-wrapper">
+      <div className="cart-btn" onClick={() => handleAddCartClick()}>
+        Add to cart
+      </div>
+    </div>
+  );
+};
 
 const ProductDesc = ({ product }: TProductDescProps) => {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="prod-desc">
       <div className="prod-info">
-        <div className="company">Sneaker Company</div>
+        <div className="company">SNEAKER COMPANY</div>
         <div className="name">{product.name}</div>
         <div className="description">{product.description}</div>
         <div className="price">
           <div className="discount">
-            <div className="now">{product.price}</div>
+            <div className="now">${product.price}</div>
             <div className="chip">
-              <div className="percent">{product.discount}</div>
+              <div className="percent">{product.discount}%</div>
             </div>
           </div>
-          <div className="origin">{product.original_price}</div>
+          <div className="origin">${product.original_price}</div>
         </div>
       </div>
-      <div className="prod-cart"></div>
+      <div className="prod-cart">
+        <CountSetter count={count} setCount={setCount} />
+        <CartBtn product={product} count={count} />
+      </div>
     </div>
   );
 };

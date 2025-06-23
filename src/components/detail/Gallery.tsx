@@ -28,10 +28,11 @@ const ThumbList = memo(
         {list.map((src, i) => {
           return (
             <div
+              key={i}
               className={`thumb-wrapper ${currentIdx === i ? 'active' : ''}`}
               onClick={() => setCurrentIdx(i)}
             >
-              <img src={src} key={i} className="thumb" />
+              <img src={src} className="thumb" />
             </div>
           );
         })}

@@ -19,6 +19,8 @@ main {
   width: 100%;
   max-width: 1100px;
   margin: 0 12rem;
+  display: flex;
+  align-items: center;
 }
 
 .detail {
@@ -29,6 +31,8 @@ main {
   .image-container,
   .desc-container {
     width: 50%;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 }
