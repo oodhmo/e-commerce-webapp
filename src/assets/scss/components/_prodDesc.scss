@@ -3,6 +3,12 @@
 .prod-desc {
   background-color: white;
 
+  .prod-info,
+  .name,
+  .description {
+    margin-bottom: 2.5rem;
+  }
+
   .company,
   .description {
     font-size: $fs-default;
@@ -28,11 +34,91 @@
     font-weight: $fw-bold;
   }
 
+  .discount {
+    display: flex;
+    align-items: center;
+
+    .now {
+      font-size: 2.5rem;
+    }
+
+    .chip {
+      background-color: $primary-pale-orange;
+      color: $primary-orange;
+      margin-left: 1.3rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 6px;
+
+      .percent {
+        font-weight: $fw-bold;
+      }
+    }
+  }
+
   .origin {
     text-decoration: line-through;
   }
 
-  .count-wrapper {
+  .prod-cart {
     display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    .count-wrapper,
+    .cart-wrapper {
+      padding: 1.3rem 1.8rem;
+      border-radius: 7px;
+    }
+
+    .count-wrapper {
+      width: 30%;
+      background-color: $neutral-light-gray;
+
+      .count {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .num {
+          font-weight: $fw-bold;
+        }
+
+        .minus,
+        .plus {
+          color: $primary-orange;
+          cursor: pointer;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: hsl(26, 100%, 75%);
+          }
+        }
+      }
+    }
+
+    .cart-wrapper {
+      width: 70%;
+      margin-left: 2rem;
+      cursor: pointer;
+      background-color: $primary-orange;
+      transition: 0.3s ease;
+
+      &:hover {
+        background-color: $hover-orange;
+        box-shadow: $hover-orange 0px 25px 20px -20px;
+      }
+
+      .cart-btn {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          margin-left: 1rem;
+        }
+      }
+    }
   }
 }
