@@ -5,6 +5,7 @@ import type {
 } from '@/types/props';
 import MinusBtnIcon from '@/components/icons/MinusBtnIcon';
 import PlusBtnIcon from '@/components/icons/PlusBtnIcon';
+import CartIcon from '@/components/icons/CartIcon';
 import { useCartStore } from '@/stores/useCartStore';
 import { useState } from 'react';
 
@@ -46,9 +47,10 @@ const CartBtn = ({ product, count }: TCartBtnProps) => {
   };
 
   return (
-    <div className="cart-wrapper">
-      <div className="cart-btn" onClick={() => handleAddCartClick()}>
-        Add to cart
+    <div className="cart-wrapper" onClick={() => handleAddCartClick()}>
+      <div className="cart-btn">
+        <CartIcon />
+        <span>Add to cart</span>
       </div>
     </div>
   );
