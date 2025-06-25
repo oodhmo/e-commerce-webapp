@@ -13,9 +13,12 @@ const ProdList = memo(({ list, idx }: TProductListProps) => {
         className="slider"
         style={{ transform: `translateX(-${idx * 100}%)` }}
       >
-        {list.map((src, i) => {
-          return <img src={src} key={i} className="prod" />;
-        })}
+        {list.map((src, i) => (
+          <div className="slide" key={i}>
+            <img src={src} className="blur-bg" alt="" />
+            <img src={src} key={i} className="prod" alt="" />
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -56,7 +59,7 @@ const Gallery = ({ images }: TGalleryProps) => {
   return (
     <div id="image-list">
       <div className="image-grid">
-        <div className="big-container">
+        <div className="prod-container">
           <ProdList list={prodImages} idx={currentIdx} />
         </div>
         <div className="thumb-container">
