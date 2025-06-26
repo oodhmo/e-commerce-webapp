@@ -68,11 +68,15 @@ const ProductDesc = ({ product }: TProductDescProps) => {
         <div className="price">
           <div className="discount">
             <div className="now">${product.price}</div>
-            <div className="chip">
-              <div className="percent">{product.discount}%</div>
-            </div>
+            {product.discount && (
+              <div className="chip">
+                <div className="percent">{product.discount}%</div>
+              </div>
+            )}
           </div>
-          <div className="origin">${product.original_price}</div>
+          {product.discount && (
+            <div className="origin">${product.original_price}</div>
+          )}
         </div>
       </div>
       <div className="prod-cart">
