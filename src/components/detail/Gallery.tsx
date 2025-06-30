@@ -1,12 +1,11 @@
 import { memo, useState } from 'react';
-import { useImageLoader, useDetailImage } from '@/hooks/useImageLoader';
 import type {
   TGalleryProps,
   TThumbListProps,
   TProductListProps,
 } from '@/types/props';
 
-const ProdList = memo(({ list, idx }: TProductListProps) => {
+const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
   return (
     <div className="slide-wrapper">
       <div
@@ -44,23 +43,18 @@ const ThumbList = memo(
   }
 );
 
-const Gallery = ({ images }: TGalleryProps) => {
-  const { imageMap: productMap } = useImageLoader('product');
-  const { imageMap: thumbMap } = useImageLoader('thumbnail');
-
-  const { prodImages, thumbImages } = useDetailImage(
-    images,
-    productMap,
-    thumbMap
-  );
-
+const Gallery = ({ prodImages, thumbImages, onClickImage }: TGalleryProps) => {
   const [currentIdx, setCurrentIdx] = useState(0);
 
   return (
     <div id="image-list">
       <div className="image-grid">
         <div className="prod-container">
-          <ProdList list={prodImages} idx={currentIdx} />
+          <ProdList
+            list={prodImages}
+            idx={currentIdx}
+            onClickImage={onClickImage}
+          />
         </div>
         <div className="thumb-container">
           <ThumbList

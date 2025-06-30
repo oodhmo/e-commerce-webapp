@@ -58,7 +58,6 @@ const CartBtn = ({ product, count }: TCartBtnProps) => {
 
 const ProductDesc = ({ product }: TProductDescProps) => {
   const [count, setCount] = useState(0);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <div className="prod-desc">
