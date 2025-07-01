@@ -7,6 +7,42 @@
 
 .prod-container {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  .arrow {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.prev {
+      left: -3rem;
+
+      svg {
+        margin-right: 0.2rem;
+      }
+    }
+
+    &.next {
+      right: -3rem;
+
+      svg {
+        padding-left: 0.2rem;
+      }
+    }
+  }
 }
 
 .slide-wrapper {

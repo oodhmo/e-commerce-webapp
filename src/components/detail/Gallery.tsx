@@ -4,6 +4,8 @@ import type {
   TThumbListProps,
   TProductListProps,
 } from '@/types/props';
+import PreviousBtnIcon from '@/components/icons/PreviousBtnIcon';
+import NextBtnIcon from '@/components/icons/NextBtnIcon';
 
 const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
   return (
@@ -54,6 +56,7 @@ const Gallery = ({
   thumbImages,
   onClickImage,
   index,
+  showArrows,
 }: TGalleryProps) => {
   const [currentIdx, setCurrentIdx] = useState(0);
 
@@ -65,15 +68,35 @@ const Gallery = ({
     }
   }, [index]);
 
+  const handlePrev = () => {
+    setCurrentIdx(prev => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const handleNext = () => {
+    setCurrentIdx(prev => (prev < prodImages.length - 1 ? prev + 1 : prev));
+  };
+
   return (
     <div id="image-list">
       <div className="image-grid">
         <div className="prod-container">
+          {showArrows && (
+            <div className="prev arrow" onClick={() => handlePrev()}>
+              <PreviousBtnIcon />
+            </div>
+          )}
+
           <ProdList
             list={prodImages}
             idx={currentIdx}
             onClickImage={onClickImage}
           />
+
+          {showArrows && (
+            <div className="next arrow" onClick={() => handleNext()}>
+              <NextBtnIcon />
+            </div>
+          )}
         </div>
         <div className="thumb-container">
           <ThumbList

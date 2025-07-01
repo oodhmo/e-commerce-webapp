@@ -36,6 +36,7 @@ const GalleryPopup = ({
               prodImages={prodImages}
               thumbImages={thumbImages}
               index={idx}
+              showArrows={true}
             />
           </div>
         </div>
