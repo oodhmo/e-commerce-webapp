@@ -1,4 +1,5 @@
-import { useParams, useState } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import sneakersList from '@/assets/data/sneakers-info.json';
 import Gallery from '@/components/detail/Gallery';
 import GalleryPopup from '@/components/detail/GalleryPopup';

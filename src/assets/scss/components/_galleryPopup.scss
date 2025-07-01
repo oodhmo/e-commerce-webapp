@@ -1,0 +1,46 @@
+#gallery-popup {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  .prod-container {
+    cursor: auto;
+  }
+
+  .dialog-container {
+    .btn-container {
+      display: flex;
+      cursor: pointer;
+
+      .x-btn {
+        margin-left: auto;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .popup-images {
+    #image-list {
+      width: 53rem !important;
+
+      .slide-wrapper {
+        height: 53rem !important;
+
+        .slider {
+          width: 53rem !important;
+        }
+      }
+
+      .thumb-container {
+        margin-top: 3rem !important;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

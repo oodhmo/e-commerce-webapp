@@ -1,11 +1,12 @@
-import type { TImagePairList } from './image';
+// import type { TImagePairList } from './image';
 import type { TProductInfo, TCartProduct } from './product';
 
 // commponents/detail/Gallery.tsx
 export interface TGalleryProps {
   prodImages: string[];
   thumbImages: string[];
-  onClickImage: (idx: number) => void;
+  onClickImage?: (idx: number) => void;
+  index?: number;
 }
 
 export interface TThumbListProps {
@@ -17,7 +18,7 @@ export interface TThumbListProps {
 export interface TProductListProps {
   list: string[];
   idx: number;
-  onClickImage: (idx: number) => void;
+  onClickImage?: (idx: number) => void;
 }
 
 // commponents/detail/ProductDesc.tsx
@@ -33,6 +34,8 @@ export interface TProductCountProps {
 export interface TGalleryPopupProps {
   isOpen: boolean;
   idx: number;
+  prodImages: string[];
+  thumbImages: string[];
   onClose: () => void;
 }
 

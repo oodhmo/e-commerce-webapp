@@ -1,32 +1,47 @@
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import type { TGalleryPopupProps } from '@/types/props';
 import CloseBtnIcon from '../icons/CloseBtnIcon';
+import Gallery from './Gallery';
 
-const GalleryPopup = ({ isOpen, idx, prodImages, thumbImages onClose }: TGalleryPopupProps) => {
+const GalleryPopup = ({
+  isOpen,
+  idx,
+  prodImages,
+  thumbImages,
+  onClose,
+}: TGalleryPopupProps) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    if (isOpen) window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div id="gallery-popup">
       <div className="dialog-container">
-        <div className="x-btn">
-          <CloseBtnIcon />
+        <div className="btn-container" onClick={() => onClose()}>
+          <span className="x-btn">
+            <CloseBtnIcon />
+          </span>
         </div>
-        <div id="image-list">
-          <div className="slide-wrapper">
-            <div
-              className="slider"
-              style={{ transform: `translateX(-${idx * 100}%)` }}
-            >
-              {list.map((src, i) => (
-                <div className="slide" key={i}>
-                  <img src={src} className="blur-bg" alt="" />
-                  <img src={src} key={i} className="prod" alt="" />
-                </div>
-              ))}
-            </div>
+        <div className="popup-images">
+          <div className="image-container">
+            <Gallery
+              prodImages={prodImages}
+              thumbImages={thumbImages}
+              index={idx}
+            />
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import type {
   TGalleryProps,
   TThumbListProps,
@@ -15,7 +15,13 @@ const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
         {list.map((src, i) => (
           <div className="slide" key={i}>
             <img src={src} className="blur-bg" alt="" />
-            <img src={src} key={i} className="prod" alt="" />
+            <img
+              src={src}
+              key={i}
+              className="prod"
+              alt=""
+              onClick={() => onClickImage?.(i)}
+            />
           </div>
         ))}
       </div>
@@ -43,8 +49,21 @@ const ThumbList = memo(
   }
 );
 
-const Gallery = ({ prodImages, thumbImages, onClickImage }: TGalleryProps) => {
+const Gallery = ({
+  prodImages,
+  thumbImages,
+  onClickImage,
+  index,
+}: TGalleryProps) => {
   const [currentIdx, setCurrentIdx] = useState(0);
+
+  // index: 큰 이미지를 클릭했을 때 그 이미지의 index (GalleryPopup.tsx 에서 사용)
+  // currentIdx: 작은 thumbnail을 선택했을 때 바뀌는 index (ProductDetail.tsx, GalleryPopup.tsx에서 사용)
+  useEffect(() => {
+    if (index !== undefined) {
+      setCurrentIdx(index);
+    }
+  }, [index]);
 
   return (
     <div id="image-list">
