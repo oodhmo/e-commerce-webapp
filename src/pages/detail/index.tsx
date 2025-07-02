@@ -1,14 +1,19 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import sneakersList from '@/assets/data/sneakers-info.json';
-import Gallery from '@/components/detail/Gallery';
-import GalleryPopup from '@/components/detail/GalleryPopup';
-import ProductDesc from '@/components/detail/ProductDesc';
+
+import DetailMobile from './DetailMobile';
+import DetailDesktop from './DetailDesktop';
+
 import type { TProductInfo } from '@/types/product';
+import type { TDetailCommonProps } from './types';
 import { useImageLoader, useDetailImage } from '@/hooks/useImageLoader';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const isMobile = useMediaQuery({ maxWidth: 825 });
 
   const product = sneakersList.find(item => item.id === id) as TProductInfo;
 
@@ -33,30 +38,20 @@ const ProductDetail = () => {
     return <div>상품을 찾을 수 없습니다.</div>;
   }
 
-  return (
-    <div id="container">
-      <div id="content">
-        <div className="detail">
-          <div className="image-container">
-            <Gallery
-              prodImages={prodImages}
-              thumbImages={thumbImages}
-              onClickImage={handleImageClick}
-            />
-          </div>
-          <div className="desc-container">
-            <ProductDesc product={product} />
-          </div>
-        </div>
-      </div>
-      <GalleryPopup
-        isOpen={isGalleryPopup}
-        prodImages={prodImages}
-        thumbImages={thumbImages}
-        idx={selectedImage}
-        onClose={() => setIsGalleryPopup(false)}
-      />
-    </div>
+  const commonProps: TDetailCommonProps = {
+    product,
+    prodImages,
+    thumbImages,
+    selectedImage,
+    isGalleryPopup,
+    setIsGalleryPopup,
+    handleImageClick,
+  };
+
+  return isMobile ? (
+    <DetailMobile {...commonProps} />
+  ) : (
+    <DetailDesktop {...commonProps} />
   );
 };
 

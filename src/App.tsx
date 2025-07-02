@@ -5,7 +5,7 @@ import Men from './pages/Men';
 import Women from './pages/Women';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import ProductDetail from './pages/ProductDetail';
+import ProductDetail from './pages/detail';
 
 function App() {
   return (
