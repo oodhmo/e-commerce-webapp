@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts' as *;
 
 #navbar {
   width: 100%;
@@ -40,6 +40,10 @@
       font-weight: $fw-bold;
       font-size: 3rem;
       margin-right: 5rem;
+
+      @include respond-to(desktop-sm) {
+        margin-right: 2.5rem !important;
+      }
     }
 
     .menu {
@@ -51,6 +55,10 @@
         margin: 0 1.6rem;
         color: $neutral-grayish-blue;
         transition: box-shadow 0.2s ease;
+
+        @include respond-to(desktop-sm) {
+          margin: 0 1rem;
+        }
 
         &:hover {
           box-shadow: inset 0 -2px 0 0 $primary-orange;

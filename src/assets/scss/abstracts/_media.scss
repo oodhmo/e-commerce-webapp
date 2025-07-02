@@ -1,0 +1,24 @@
+$breakpoint-desktop-st: 1399px; // max
+$breakpoint-desktop-sm: 1147px; // max
+$breakpoint-desktop-xl: 1400px; // min
+$breakpoint-mobile: 825px; // max
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == desktop-st {
+    @media (max-width: $breakpoint-desktop-st) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-sm {
+    @media (max-width: $breakpoint-desktop-sm) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-xl {
+    @media (min-width: $breakpoint-desktop-xl) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media (min-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+}

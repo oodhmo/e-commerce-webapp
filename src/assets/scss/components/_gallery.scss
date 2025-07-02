@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts' as *;
 
 #image-list {
   width: 43rem;
@@ -52,6 +52,10 @@
   position: relative;
   border-radius: 10px;
 
+  @include respond-to(desktop-sm) {
+    height: 33rem;
+  }
+
   .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -101,6 +105,11 @@
   max-width: 43rem;
   cursor: pointer;
 
+  @include respond-to(desktop-sm) {
+    grid-template-columns: repeat(4, 7.3rem);
+    max-width: 33rem !important;
+  }
+
   .thumb-wrapper,
   img {
     border-radius: 10px;
@@ -141,5 +150,13 @@
     &::after {
       background: rgba(255, 255, 255, 0.4) !important;
     }
+  }
+}
+
+#image-list,
+.slide-wrapper,
+.slider {
+  @include respond-to(desktop-sm) {
+    width: 33rem !important;
   }
 }
