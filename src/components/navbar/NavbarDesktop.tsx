@@ -3,7 +3,7 @@ import CartIcon from '@/components/icons/CartIcon';
 import avatar from '@/assets/images/avatar/image-avatar.png';
 import { useNavigate } from 'react-router-dom';
 
-const NavBar = () => {
+const NavbarDesktop = () => {
   const navigate = useNavigate();
 
   const handleGoToPage = (page: string) => {
@@ -47,4 +47,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavbarDesktop;

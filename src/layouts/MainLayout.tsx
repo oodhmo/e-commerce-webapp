@@ -1,8 +1,8 @@
-import NavBar from "@/components/NavBar";
+import NavBar from '@/components/navbar';
 
 type Props = {
   children: React.ReactNode;
-}
+};
 
 const MainLayout = ({ children }: Props) => {
   return (
