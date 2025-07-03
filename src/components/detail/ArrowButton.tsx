@@ -1,4 +1,3 @@
-import React from 'react';
 import PreviousBtnIcon from '@/components/icons/PreviousBtnIcon';
 import NextBtnIcon from '@/components/icons/NextBtnIcon';
 
