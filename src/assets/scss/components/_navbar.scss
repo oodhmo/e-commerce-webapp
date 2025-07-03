@@ -1,8 +1,8 @@
 @use '../abstracts' as *;
 
-#navbar {
+#navbar,
+#navbar-mobile {
   width: 100%;
-  height: $navbar-height;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,9 +15,6 @@
   .nav-container {
     width: 100%;
     height: 100%;
-    max-width: 1200px;
-    border-bottom: 1px solid rgba(211, 211, 211, 0.575);
-    margin: 0 8rem;
   }
 
   .nav-content,
@@ -38,6 +35,47 @@
   .nav-lft {
     .logo {
       font-weight: $fw-bold;
+      font-size: 3rem;
+    }
+  }
+
+  .nav-rgt {
+    margin-left: auto;
+
+    .cart {
+      color: #69707d;
+      margin-right: 4.5rem;
+    }
+
+    img {
+      border-radius: 50%;
+      transition: box-shadow 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 0 0 2px $primary-orange;
+      }
+    }
+  }
+
+  .logo,
+  li,
+  .cart,
+  .avatar {
+    cursor: pointer;
+  }
+}
+
+#navbar {
+  height: $navbar-height;
+
+  .nav-container {
+    max-width: 1200px;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.575);
+    margin: 0 8rem;
+  }
+
+  .nav-lft {
+    .logo {
       font-size: 3rem;
       margin-right: 5rem;
 
@@ -68,30 +106,32 @@
   }
 
   .nav-rgt {
-    margin-left: auto;
-
     .cart {
-      color: #69707d;
       margin-right: 4.5rem;
     }
-
-    img {
-      border-radius: 50%;
-      transition: box-shadow 0.2s ease;
-
-      &:hover {
-        box-shadow: 0 0 0 2px $primary-orange;
-      }
-    }
-  }
-
-  .logo,
-  li,
-  .cart,
-  .avatar {
-    cursor: pointer;
   }
 }
 
 #navbar-mobile {
+  height: $navbar-height-mobile;
+
+  .nav-container {
+    max-width: $breakpoint-mobile;
+    margin: 0 3rem;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.2);
+  }
+
+  .nav-lft {
+    gap: 2rem;
+  }
+
+  .nav-rgt {
+    .cart {
+      margin-right: 3rem;
+    }
+
+    img {
+      width: 3rem;
+    }
+  }
 }
