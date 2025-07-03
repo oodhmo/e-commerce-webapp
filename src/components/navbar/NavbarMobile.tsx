@@ -1,21 +1,41 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import menuItems from '@/assets/data/menu-info.json';
 import CartIcon from '@/components/icons/CartIcon';
 import MenuIcon from '@/components/icons/MenuIcon';
 import avatar from '@/assets/images/avatar/image-avatar.png';
+import CloseBtnIcon from '@/components/icons/CloseBtnIcon';
+
+// menuItems 타입 정의
+interface MenuItem {
+  id: string;
+  name: string;
+  url: string;
+}
 
 const NavbarMobile = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  type MenuState = 'open' | 'closed' | 'closing';
+  const [menuState, setMenuState] = useState<MenuState>('closed');
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleGoToPage = (page: string) => {
     navigate(page);
-    setMenuOpen(false); // 메뉴 닫기
+    handleMenuClose();
   };
 
   const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
+    if (menuState === 'closed' || menuState === 'closing') {
+      setMenuState('open');
+    } else {
+      handleMenuClose();
+    }
+  };
+
+  const handleMenuClose = () => {
+    setMenuState('closing');
+    setTimeout(() => setMenuState('closed'), 250);
   };
 
   return (
@@ -43,6 +63,41 @@ const NavbarMobile = () => {
           </div>
         </div>
       </div>
+      {/* 오버레이 및 사이드 메뉴 */}
+      {(menuState === 'open' || menuState === 'closing') && (
+        <>
+          <div
+            className={`mobile-menu-overlay${
+              menuState === 'open' ? ' open' : ''
+            }`}
+            onClick={handleMenuClose}
+          />
+          <nav
+            className={`mobile-menu ${
+              menuState === 'open' ? 'slide-in' : 'slide-out'
+            }`}
+          >
+            <button
+              className="close-btn"
+              onClick={handleMenuClose}
+              aria-label="메뉴 닫기"
+            >
+              <CloseBtnIcon />
+            </button>
+            <ul className="mobile-menu-list">
+              {(menuItems as MenuItem[]).map(item => (
+                <li
+                  key={item.id}
+                  onClick={() => handleGoToPage(item.url)}
+                  className={location.pathname === item.url ? 'active' : ''}
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </>
+      )}
     </div>
   );
 };

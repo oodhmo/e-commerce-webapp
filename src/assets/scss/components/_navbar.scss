@@ -60,7 +60,8 @@
   .logo,
   li,
   .cart,
-  .avatar {
+  .avatar,
+  .menu-btn {
     cursor: pointer;
   }
 }
@@ -134,4 +135,103 @@
       width: 3rem;
     }
   }
+}
+
+// 모바일 메뉴 오버레이
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// 모바일 사이드 메뉴
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem 0 2rem;
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.08);
+  animation: slideInMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in {
+  animation: slideInMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.slide-out {
+  animation: slideOutMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInMenu {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutMenu {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.close-btn {
+  width: 3rem;
+  background: none;
+  border: none;
+  color: #222;
+  position: absolute;
+  top: 2.2rem;
+  left: 2rem;
+  z-index: 21;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding-top: 70px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.mobile-menu-list li {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #222;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mobile-menu-list li:hover {
+  color: $primary-orange;
+}
+
+.mobile-menu-list li.active {
+  color: $primary-orange;
 }
