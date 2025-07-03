@@ -14,7 +14,6 @@
 
   .arrow {
     position: absolute;
-    transform: translateY(-50%);
     width: 5rem;
     height: 5rem;
     background-color: white;
@@ -153,10 +152,12 @@
   }
 }
 
-#image-list,
-.slide-wrapper,
-.slider {
-  @include respond-to(desktop-sm) {
-    width: 33rem !important;
+.detail {
+  #image-list,
+  .slide-wrapper,
+  .slider {
+    @include respond-to(desktop-sm) {
+      width: 33rem !important;
+    }
   }
 }
