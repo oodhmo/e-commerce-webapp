@@ -1,23 +1,27 @@
-$breakpoint-desktop-st: 1399px; // max
-$breakpoint-desktop-sm: 1147px; // max
-$breakpoint-desktop-xl: 1400px; // min
-$breakpoint-mobile: 825px; // max
+$breakpoint-mobile: 825px; // 0px ~ 825px
+$breakpoint-desktop-sm: 1147px; // 826px ~ 1147px
+$breakpoint-desktop-st: 1399px; // 1148px ~ 1399px
+$breakpoint-desktop-xl: 1400px; // 1400px 이상
 
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == desktop-st {
-    @media (max-width: $breakpoint-desktop-st) {
+  @if $breakpoint == mobile {
+    // 0px ~ 825px
+    @media (max-width: $breakpoint-mobile) {
       @content;
     }
   } @else if $breakpoint == desktop-sm {
-    @media (max-width: $breakpoint-desktop-sm) {
+    // 826px ~ 1147px
+    @media (min-width: 826px) and (max-width: $breakpoint-desktop-sm) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-st {
+    // 1148px ~ 1399px
+    @media (min-width: 1148px) and (max-width: $breakpoint-desktop-st) {
       @content;
     }
   } @else if $breakpoint == desktop-xl {
+    // 1400px 이상
     @media (min-width: $breakpoint-desktop-xl) {
-      @content;
-    }
-  } @else if $breakpoint == mobile {
-    @media (min-width: $breakpoint-mobile) {
       @content;
     }
   }

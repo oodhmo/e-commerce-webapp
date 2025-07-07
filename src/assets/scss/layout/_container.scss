@@ -5,6 +5,10 @@ main {
   height: 100%;
   position: relative;
   z-index: 2;
+
+  @include respond-to(mobile) {
+    padding-top: $navbar-height-mobile !important;
+  }
 }
 
 #container {
