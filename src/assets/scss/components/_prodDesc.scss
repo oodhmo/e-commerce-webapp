@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts/' as *;
 
 .prod-desc {
   background-color: white;
@@ -27,11 +27,26 @@
 
   .company {
     color: $primary-orange;
+
+    @include respond-to(mobile) {
+      font-size: 1.4rem;
+    }
   }
 
   .name {
     font-size: 4rem;
     font-weight: $fw-bold;
+
+    @include respond-to(mobile) {
+      font-size: 3.4rem;
+    }
+  }
+
+  .price {
+    @include respond-to(mobile) {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .discount {
@@ -57,6 +72,7 @@
 
   .origin {
     text-decoration: line-through;
+    margin-left: auto;
   }
 
   .prod-cart {
@@ -120,5 +136,24 @@
         }
       }
     }
+
+    @include respond-to(mobile) {
+      display: block;
+
+      .count-wrapper,
+      .cart-wrapper {
+        width: 100%;
+      }
+
+      .cart-wrapper {
+        margin-left: 0;
+        margin-top: 1.5rem;
+      }
+    }
   }
+}
+
+// 모바일 레이아웃
+.desc-container-mobile {
+  padding: 2.5rem;
 }

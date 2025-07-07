@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import type { TGalleryProps, TProductListProps } from '@/types/props';
 import ArrowButton from '@/components/detail/ArrowButton';
+import ProductDesc from './ProductDesc';
 
 const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
   return (
