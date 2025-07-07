@@ -189,6 +189,7 @@
 
       @include respond-to(mobile) {
         height: 80vw;
+        min-height: $min-width;
         max-height: 43rem;
       }
 

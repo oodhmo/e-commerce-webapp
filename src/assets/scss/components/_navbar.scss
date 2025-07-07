@@ -3,6 +3,7 @@
 #navbar,
 #navbar-mobile {
   width: 100%;
+  min-width: $min-width;
   position: fixed;
   top: 0;
   left: 0;
