@@ -18,10 +18,10 @@ const ProductDetail = () => {
   const product = sneakersList.find(item => item.id === id) as TProductInfo;
 
   const [isGalleryPopup, setIsGalleryPopup] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [currentIdx, setCurrentIdx] = useState(0);
 
   const handleImageClick = (idx: number) => {
-    setSelectedImage(idx);
+    setCurrentIdx(idx);
     setIsGalleryPopup(true);
   };
 
@@ -42,7 +42,8 @@ const ProductDetail = () => {
     product,
     prodImages,
     thumbImages,
-    selectedImage,
+    currentIdx,
+    setCurrentIdx,
     isGalleryPopup,
     setIsGalleryPopup,
     handleImageClick,

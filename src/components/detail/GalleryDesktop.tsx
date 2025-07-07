@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import type {
   TGalleryProps,
   TThumbListProps,
@@ -39,7 +39,7 @@ const ThumbList = memo(
             <div
               key={i}
               className={`thumb-wrapper ${currentIdx === i ? 'active' : ''}`}
-              onClick={() => setCurrentIdx(i)}
+              onClick={() => setCurrentIdx && setCurrentIdx(i)}
             >
               <img src={src} className="thumb" />
             </div>
@@ -55,28 +55,21 @@ const GalleryDesktop = ({
   thumbImages,
   onClickImage,
   showArrows,
-  currentIdx: propCurrentIdx,
-  setCurrentIdx: propSetCurrentIdx,
-  clickedIndex,
+  currentIdx = 0,
+  setCurrentIdx,
 }: TGalleryProps) => {
-  const [localIdx, setLocalIdx] = useState(0);
-  const currentIdx = propCurrentIdx !== undefined ? propCurrentIdx : localIdx;
-  const setCurrentIdx = propSetCurrentIdx || setLocalIdx;
-
-  useEffect(() => {
-    if (clickedIndex !== undefined) {
-      setCurrentIdx(clickedIndex);
-    }
-  }, [clickedIndex, setCurrentIdx]);
-
   const handlePrev = () => {
-    setCurrentIdx(currentIdx > 0 ? currentIdx - 1 : currentIdx);
+    if (setCurrentIdx) {
+      setCurrentIdx(currentIdx > 0 ? currentIdx - 1 : currentIdx);
+    }
   };
 
   const handleNext = () => {
-    setCurrentIdx(
-      currentIdx < prodImages.length - 1 ? currentIdx + 1 : currentIdx
-    );
+    if (setCurrentIdx) {
+      setCurrentIdx(
+        currentIdx < prodImages.length - 1 ? currentIdx + 1 : currentIdx
+      );
+    }
   };
 
   return (

@@ -1,9 +1,8 @@
 import { memo } from 'react';
 import type { TGalleryProps, TProductListProps } from '@/types/props';
 import ArrowButton from '@/components/detail/ArrowButton';
-import ProductDesc from './ProductDesc';
 
-const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
+const ProdList = memo(({ list, idx }: TProductListProps) => {
   return (
     <div className="slide-wrapper">
       <div
@@ -13,13 +12,7 @@ const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
         {list.map((src: string, i: number) => (
           <div className="slide" key={i}>
             <img src={src} className="blur-bg" alt="" />
-            <img
-              src={src}
-              key={i}
-              className="prod"
-              alt=""
-              onClick={() => onClickImage?.(i)}
-            />
+            <img src={src} key={i} className="prod" alt="" />
           </div>
         ))}
       </div>
@@ -28,7 +21,7 @@ const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
 });
 
 const GalleryMobile = (props: TGalleryProps) => {
-  const { prodImages, currentIdx = 0, setCurrentIdx, onClickImage } = props;
+  const { prodImages, currentIdx = 0, setCurrentIdx } = props;
 
   if (!prodImages) return null;
 
@@ -49,11 +42,7 @@ const GalleryMobile = (props: TGalleryProps) => {
   return (
     <div className="gallery-mobile">
       <div className="prod-container">
-        <ProdList
-          list={prodImages}
-          idx={currentIdx}
-          onClickImage={onClickImage}
-        />
+        <ProdList list={prodImages} idx={currentIdx} />
 
         <div className="arrow-buttons">
           <ArrowButton direction="prev" onClick={handlePrev} />

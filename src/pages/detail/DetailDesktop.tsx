@@ -7,7 +7,8 @@ const DetailDesktop = ({
   product,
   prodImages,
   thumbImages,
-  selectedImage,
+  currentIdx,
+  setCurrentIdx,
   isGalleryPopup,
   setIsGalleryPopup,
   handleImageClick,
@@ -20,6 +21,8 @@ const DetailDesktop = ({
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}
+              currentIdx={currentIdx}
+              setCurrentIdx={setCurrentIdx}
               onClickImage={handleImageClick}
             />
           </div>
@@ -32,7 +35,8 @@ const DetailDesktop = ({
         isOpen={isGalleryPopup}
         prodImages={prodImages}
         thumbImages={thumbImages}
-        idx={selectedImage}
+        currentIdx={currentIdx}
+        setCurrentIdx={setCurrentIdx}
         onClose={() => setIsGalleryPopup(false)}
       />
     </div>

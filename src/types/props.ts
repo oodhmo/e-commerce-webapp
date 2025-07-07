@@ -15,7 +15,7 @@ export interface TGalleryProps {
 export interface TThumbListProps {
   list: string[];
   currentIdx: number;
-  setCurrentIdx: (idx: number) => void;
+  setCurrentIdx?: (idx: number) => void;
 }
 
 export interface TProductListProps {
@@ -36,7 +36,8 @@ export interface TProductCountProps {
 
 export interface TGalleryPopupProps {
   isOpen: boolean;
-  idx: number;
+  currentIdx: number;
+  setCurrentIdx: (idx: number) => void;
   prodImages: string[];
   thumbImages: string[];
   onClose: () => void;

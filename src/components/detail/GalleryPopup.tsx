@@ -6,7 +6,8 @@ import Gallery from './Gallery';
 
 const GalleryPopup = ({
   isOpen,
-  idx,
+  currentIdx,
+  setCurrentIdx,
   prodImages,
   thumbImages,
   onClose,
@@ -35,7 +36,8 @@ const GalleryPopup = ({
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}
-              clickedIndex={idx}
+              currentIdx={currentIdx}
+              setCurrentIdx={setCurrentIdx}
               showArrows={true}
             />
           </div>

@@ -6,6 +6,8 @@ const DetailMobile = ({
   product,
   prodImages,
   thumbImages,
+  currentIdx,
+  setCurrentIdx,
   handleImageClick,
 }: TDetailCommonProps) => {
   return (
@@ -16,6 +18,8 @@ const DetailMobile = ({
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}
+              currentIdx={currentIdx}
+              setCurrentIdx={setCurrentIdx}
               onClickImage={handleImageClick}
             />
           </div>
