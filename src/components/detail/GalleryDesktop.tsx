@@ -54,23 +54,29 @@ const GalleryDesktop = ({
   prodImages,
   thumbImages,
   onClickImage,
-  index,
   showArrows,
+  currentIdx: propCurrentIdx,
+  setCurrentIdx: propSetCurrentIdx,
+  clickedIndex,
 }: TGalleryProps) => {
-  const [currentIdx, setCurrentIdx] = useState(0);
+  const [localIdx, setLocalIdx] = useState(0);
+  const currentIdx = propCurrentIdx !== undefined ? propCurrentIdx : localIdx;
+  const setCurrentIdx = propSetCurrentIdx || setLocalIdx;
 
   useEffect(() => {
-    if (index !== undefined) {
-      setCurrentIdx(index);
+    if (clickedIndex !== undefined) {
+      setCurrentIdx(clickedIndex);
     }
-  }, [index]);
+  }, [clickedIndex, setCurrentIdx]);
 
   const handlePrev = () => {
-    setCurrentIdx(prev => (prev > 0 ? prev - 1 : prev));
+    setCurrentIdx(currentIdx > 0 ? currentIdx - 1 : currentIdx);
   };
 
   const handleNext = () => {
-    setCurrentIdx(prev => (prev < prodImages.length - 1 ? prev + 1 : prev));
+    setCurrentIdx(
+      currentIdx < prodImages.length - 1 ? currentIdx + 1 : currentIdx
+    );
   };
 
   return (

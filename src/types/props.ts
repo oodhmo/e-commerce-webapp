@@ -6,8 +6,10 @@ export interface TGalleryProps {
   prodImages: string[];
   thumbImages: string[];
   onClickImage?: (idx: number) => void;
-  index?: number;
+  clickedIndex?: number;
   showArrows?: boolean;
+  currentIdx?: number;
+  setCurrentIdx?: (idx: number) => void;
 }
 
 export interface TThumbListProps {
