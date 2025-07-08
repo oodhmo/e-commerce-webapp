@@ -36,7 +36,6 @@ const DetailDesktop = ({
         prodImages={prodImages}
         thumbImages={thumbImages}
         currentIdx={currentIdx}
-        setCurrentIdx={setCurrentIdx}
         onClose={() => setIsGalleryPopup(false)}
       />
     </div>

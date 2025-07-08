@@ -37,7 +37,6 @@ export interface TProductCountProps {
 export interface TGalleryPopupProps {
   isOpen: boolean;
   currentIdx: number;
-  setCurrentIdx: (idx: number) => void;
   prodImages: string[];
   thumbImages: string[];
   onClose: () => void;

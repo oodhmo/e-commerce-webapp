@@ -48,7 +48,7 @@ const ThumbList = memo(
       </div>
     );
   }
-);
+); 
 
 const GalleryDesktop = ({
   prodImages,

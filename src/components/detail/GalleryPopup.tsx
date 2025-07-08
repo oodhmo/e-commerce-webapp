@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { TGalleryPopupProps } from '@/types/props';
 import CloseBtnIcon from '../icons/CloseBtnIcon';
@@ -7,11 +7,19 @@ import Gallery from './Gallery';
 const GalleryPopup = ({
   isOpen,
   currentIdx,
-  setCurrentIdx,
   prodImages,
   thumbImages,
   onClose,
 }: TGalleryPopupProps) => {
+  const [selectedIdx, setSelectedIdx] = useState(currentIdx);
+
+  // 팝업이 열릴 때마다 currentIdx로 초기화
+  useEffect(() => {
+    if (isOpen) {
+      setSelectedIdx(currentIdx);
+    }
+  }, [isOpen, currentIdx]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -36,8 +44,8 @@ const GalleryPopup = ({
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}
-              currentIdx={currentIdx}
-              setCurrentIdx={setCurrentIdx}
+              currentIdx={selectedIdx}
+              setCurrentIdx={setSelectedIdx}
               showArrows={true}
             />
           </div>
