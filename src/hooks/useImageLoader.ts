@@ -37,13 +37,11 @@ export const useDetailImage = (
   prodMap: Record<string, string>,
   thumbMap: Record<string, string>
 ) => {
-  const prodImages = Object.entries(prodMap)
-    .filter(([name, _]) => images.some(i => name === i.prod_image))
-    .map(([_, path]) => path);
+  const prodImages = images.map(img => prodMap[img.prod_image]).filter(Boolean);
 
-  const thumbImages = Object.entries(thumbMap)
-    .filter(([name, _]) => images.some(i => name === i.thumb_image))
-    .map(([_, path]) => path);
+  const thumbImages = images
+    .map(img => thumbMap[img.thumb_image])
+    .filter(Boolean);
 
   return { prodImages, thumbImages };
 };
@@ -53,9 +51,9 @@ export const useCartImage = (
   mainImgList: string[],
   thumbMap: Record<string, string>
 ) => {
-  const cartImages = Object.entries(thumbMap)
-    .filter(([name, _]) => mainImgList.some(i => name === i))
-    .map(([_, path]) => path);
+  const cartImages = mainImgList
+    .map(mainImg => thumbMap[mainImg])
+    .filter(Boolean);
 
   return { cartImages };
 };
