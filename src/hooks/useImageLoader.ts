@@ -31,12 +31,12 @@ export const useImageLoader = (type: 'product' | 'thumbnail') => {
   return { imageMap };
 };
 
+// 디테일 페이지에서 사용할 이미지만 필터링해서 import
 export const useDetailImage = (
   images: TImagePairList,
   prodMap: Record<string, string>,
   thumbMap: Record<string, string>
 ) => {
-  // 디테일 페이지에서 사용할 이미지만 필터링
   const prodImages = Object.entries(prodMap)
     .filter(([name, _]) => images.some(i => name === i.prod_image))
     .map(([_, path]) => path);
@@ -46,4 +46,16 @@ export const useDetailImage = (
     .map(([_, path]) => path);
 
   return { prodImages, thumbImages };
+};
+
+// 장바구니에서 사용할 이미지만 필터링해서 import
+export const useCartImage = (
+  mainImgList: string[],
+  thumbMap: Record<string, string>
+) => {
+  const cartImages = Object.entries(thumbMap)
+    .filter(([name, _]) => mainImgList.some(i => name === i))
+    .map(([_, path]) => path);
+
+  return { cartImages };
 };

@@ -2,13 +2,32 @@ import menuItems from '@/assets/data/menu-info.json';
 import CartIcon from '@/components/icons/CartIcon';
 import avatar from '@/assets/images/avatar/image-avatar.png';
 import { useNavigate } from 'react-router-dom';
+import CartPopup from './CartPopup';
+import { useState, useRef, useEffect } from 'react';
 
 const NavbarDesktop = () => {
   const navigate = useNavigate();
+  const [showCart, setShowCart] = useState(false);
+  const cartRef = useRef<HTMLDivElement>(null);
 
   const handleGoToPage = (page: string) => {
     navigate(page);
   };
+
+  // 바깥 클릭 시 팝업 닫기
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        setShowCart(false);
+      }
+    };
+    if (showCart) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showCart]);
 
   return (
     <div id="navbar">
@@ -34,11 +53,14 @@ const NavbarDesktop = () => {
             </div>
           </div>
           <div className="nav-rgt">
-            <div className="cart">
-              <CartIcon />
+            <div className="cart" ref={cartRef}>
+              <span onClick={() => setShowCart(v => !v)}>
+                <CartIcon />
+              </span>
+              {showCart && <CartPopup />}
             </div>
             <div className="avatar">
-              <img src={avatar} alt="avatar" width="40" />
+              <img src={avatar} alt="avatar" width="40" className="avatar" />
             </div>
           </div>
         </div>

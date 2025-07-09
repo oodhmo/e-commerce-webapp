@@ -11,10 +11,21 @@ type CartState = {
 export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
-      cart: [],
+      cart: [
+        {
+          id: 'sn-001',
+          name: 'Product Name',
+          price: '10000',
+          mainImg: 'https://via.placeholder.com/150',
+          count: 1,
+          totalPrice: 10000,
+        },
+      ],
       addCart: product => {
         const currentCart = get().cart;
         const existing = currentCart.find(item => item.id === product.id);
+
+        console.log(currentCart);
 
         // 이미 상품이 들어있으면 수량만 업데이트
         if (existing) {
