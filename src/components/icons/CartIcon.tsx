@@ -1,7 +1,18 @@
 import CartSvg from '@/assets/images/icons/icon-cart.svg?react';
 
-const CartIcon = () => {
-  return <CartSvg />;
+interface CartIconProps {
+  count?: number;
+}
+
+const CartIcon = ({ count }: CartIconProps) => {
+  return (
+    <div className="cart-icon-container">
+      <CartSvg />
+      {typeof count === 'number' && count > 0 && (
+        <span className="cart-badge">{count}</span>
+      )}
+    </div>
+  );
 };
 
 export default CartIcon;

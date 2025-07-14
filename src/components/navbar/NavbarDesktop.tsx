@@ -3,12 +3,25 @@ import CartIcon from '@/components/icons/CartIcon';
 import avatar from '@/assets/images/avatar/image-avatar.png';
 import { useNavigate } from 'react-router-dom';
 import CartPopup from './CartPopup';
-import { useState, useRef, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useCartStore } from '@/stores/useCartStore';
 
-const NavbarDesktop = () => {
+interface NavbarDesktopProps {
+  showCart: boolean;
+  onCartToggle: () => void;
+  onCartClose: () => void;
+  cartRef: React.RefObject<HTMLDivElement>;
+}
+
+const NavbarDesktop = ({
+  showCart,
+  onCartToggle,
+  onCartClose,
+  cartRef,
+}: NavbarDesktopProps) => {
   const navigate = useNavigate();
-  const [showCart, setShowCart] = useState(false);
-  const cartRef = useRef<HTMLDivElement>(null);
+  const cart = useCartStore(state => state.cart);
+  const cartCount = cart.reduce((total, item) => total + item.count, 0);
 
   const handleGoToPage = (page: string) => {
     navigate(page);
@@ -18,7 +31,7 @@ const NavbarDesktop = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
-        setShowCart(false);
+        onCartClose();
       }
     };
     if (showCart) {
@@ -27,7 +40,7 @@ const NavbarDesktop = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showCart]);
+  }, [showCart, cartRef, onCartClose]);
 
   return (
     <div id="navbar">
@@ -54,8 +67,8 @@ const NavbarDesktop = () => {
           </div>
           <div className="nav-rgt">
             <div className="cart" ref={cartRef}>
-              <span onClick={() => setShowCart(v => !v)}>
-                <CartIcon />
+              <span onClick={onCartToggle}>
+                <CartIcon count={cartCount} />
               </span>
               {showCart && <CartPopup />}
             </div>

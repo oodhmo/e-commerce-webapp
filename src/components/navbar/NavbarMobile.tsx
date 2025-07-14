@@ -5,6 +5,8 @@ import CartIcon from '@/components/icons/CartIcon';
 import MenuIcon from '@/components/icons/MenuIcon';
 import avatar from '@/assets/images/avatar/image-avatar.png';
 import CloseBtnIcon from '@/components/icons/CloseBtnIcon';
+import { useCartStore } from '@/stores/useCartStore';
+import CartPopup from './CartPopup';
 
 // menuItems 타입 정의
 interface MenuItem {
@@ -13,9 +15,23 @@ interface MenuItem {
   url: string;
 }
 
-const NavbarMobile = () => {
+interface NavbarMobileProps {
+  showCart: boolean;
+  onCartToggle: () => void;
+  onCartClose: () => void;
+  cartRef: React.RefObject<HTMLDivElement>;
+}
+
+const NavbarMobile = ({
+  showCart,
+  onCartToggle,
+  onCartClose,
+  cartRef,
+}: NavbarMobileProps) => {
   type MenuState = 'open' | 'closed' | 'closing';
   const [menuState, setMenuState] = useState<MenuState>('closed');
+  const cart = useCartStore(state => state.cart);
+  const cartCount = cart.reduce((total, item) => total + item.count, 0);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -54,8 +70,11 @@ const NavbarMobile = () => {
             </div>
           </div>
           <div className="nav-rgt">
-            <div className="cart">
-              <CartIcon />
+            <div className="cart-popup-wrap" ref={cartRef}>
+              <span className="cart" onClick={onCartToggle}>
+                <CartIcon count={cartCount} />
+              </span>
+              {showCart && <CartPopup />}
             </div>
             <div className="avatar">
               <img src={avatar} alt="avatar" width="40" />
@@ -63,7 +82,6 @@ const NavbarMobile = () => {
           </div>
         </div>
       </div>
-      {/* 오버레이 및 사이드 메뉴 */}
       {(menuState === 'open' || menuState === 'closing') && (
         <>
           <div

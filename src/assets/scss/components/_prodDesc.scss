@@ -80,6 +80,7 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    user-select: none;
 
     .count-wrapper,
     .cart-wrapper {
