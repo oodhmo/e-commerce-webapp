@@ -42,7 +42,8 @@ export interface TGalleryPopupProps {
   onClose: () => void;
 }
 
-export interface TCartBtnProps {
-  count: number;
+export type TCartBtnProps = {
   product: TProductInfo;
-}
+  count: number;
+  onAddCart?: () => void;
+};

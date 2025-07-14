@@ -58,6 +58,18 @@ const CartBtn = ({ product, count }: TCartBtnProps) => {
 
 const ProductDesc = ({ product }: TProductDescProps) => {
   const [count, setCount] = useState(0);
+  const [toast, setToast] = useState({ visible: false, message: '' });
+
+  // 토스트 자동 사라짐
+  useEffect(() => {
+    if (toast.visible) {
+      const timer = setTimeout(
+        () => setToast({ ...toast, visible: false }),
+        2500
+      );
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
   return (
     <div className="prod-desc">
