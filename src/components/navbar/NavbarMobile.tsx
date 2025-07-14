@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'; // useNavigate,
 import menuItems from '@/assets/data/menu-info.json';
 import CartIcon from '@/components/icons/CartIcon';
 import MenuIcon from '@/components/icons/MenuIcon';
@@ -33,13 +33,13 @@ const NavbarMobile = ({
   const cart = useCartStore(state => state.cart);
   const cartCount = cart.reduce((total, item) => total + item.count, 0);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
-  const handleGoToPage = (page: string) => {
-    navigate(page);
-    handleMenuClose();
-  };
+  // const handleGoToPage = (page: string) => {
+  //   navigate(page);
+  //   handleMenuClose();
+  // };
 
   const handleMenuToggle = () => {
     if (menuState === 'closed' || menuState === 'closing') {
@@ -64,7 +64,7 @@ const NavbarMobile = ({
             </div>
             <div
               className="logo"
-              onClick={() => handleGoToPage('/collections')}
+              // onClick={() => handleGoToPage('/collections')}
             >
               sneakers
             </div>
@@ -106,7 +106,7 @@ const NavbarMobile = ({
               {(menuItems as MenuItem[]).map(item => (
                 <li
                   key={item.id}
-                  onClick={() => handleGoToPage(item.url)}
+                  // onClick={() => handleGoToPage(item.url)}
                   className={location.pathname === item.url ? 'active' : ''}
                 >
                   {item.name}

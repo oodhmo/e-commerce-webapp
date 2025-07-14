@@ -1,7 +1,7 @@
 import menuItems from '@/assets/data/menu-info.json';
 import CartIcon from '@/components/icons/CartIcon';
 import avatar from '@/assets/images/avatar/image-avatar.png';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import CartPopup from './CartPopup';
 import { useEffect } from 'react';
 import { useCartStore } from '@/stores/useCartStore';
@@ -19,13 +19,13 @@ const NavbarDesktop = ({
   onCartClose,
   cartRef,
 }: NavbarDesktopProps) => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const cart = useCartStore(state => state.cart);
   const cartCount = cart.reduce((total, item) => total + item.count, 0);
 
-  const handleGoToPage = (page: string) => {
-    navigate(page);
-  };
+  // const handleGoToPage = (page: string) => {
+  //   navigate(page);
+  // };
 
   // 바깥 클릭 시 팝업 닫기
   useEffect(() => {
@@ -49,7 +49,7 @@ const NavbarDesktop = ({
           <div className="nav-lft">
             <div
               className="logo"
-              onClick={() => handleGoToPage('/collections')}
+              // onClick={() => handleGoToPage('/collections')}
             >
               sneakers
             </div>
@@ -57,7 +57,10 @@ const NavbarDesktop = ({
               <ul className="list">
                 {menuItems.map(item => {
                   return (
-                    <li key={item.id} onClick={() => handleGoToPage(item.url)}>
+                    <li
+                      key={item.id}
+                      // onClick={() => handleGoToPage(item.url)}
+                    >
                       {item.name}
                     </li>
                   );
