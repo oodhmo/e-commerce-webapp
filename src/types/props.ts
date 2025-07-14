@@ -1,5 +1,4 @@
-// import type { TImagePairList } from './image';
-import type { TProductInfo, TCartProduct } from './product';
+import type { TProductInfo } from './product';
 
 // commponents/detail/Gallery.tsx
 export interface TGalleryProps {

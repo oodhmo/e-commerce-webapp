@@ -1,6 +1,5 @@
 import { useCartStore } from '@/stores/useCartStore';
 import DeleteIcon from '@/components/icons/DeleteIcon';
-import { useEffect } from 'react';
 import type { TCartProduct } from '@/types/product';
 import { useImageLoader, useCartImage } from '@/hooks/useImageLoader';
 
@@ -8,12 +7,6 @@ const CartPopup = () => {
   const cart = useCartStore(state => state.cart);
   const deleteCart = useCartStore(state => state.deleteCart);
   const hasItems = cart.length > 0;
-
-  useEffect(() => {
-    if (cart) {
-      console.log(cart);
-    }
-  }, [cart]);
 
   const cartItem = hasItems ? cart : null;
 
