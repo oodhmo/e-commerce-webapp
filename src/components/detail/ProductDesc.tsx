@@ -7,7 +7,8 @@ import MinusBtnIcon from '@/components/icons/MinusBtnIcon';
 import PlusBtnIcon from '@/components/icons/PlusBtnIcon';
 import CartIcon from '@/components/icons/CartIcon';
 import { useCartStore } from '@/stores/useCartStore';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Toast from '@/components/common/Toast';
 
 const CountSetter = ({ count, setCount }: TProductCountProps) => {
   return (
@@ -30,20 +31,27 @@ const CountSetter = ({ count, setCount }: TProductCountProps) => {
   );
 };
 
-const CartBtn = ({ product, count }: TCartBtnProps) => {
+const CartBtn = ({
+  product,
+  count,
+  onAddCart,
+}: TCartBtnProps & { onAddCart?: () => void }) => {
   const addCart = useCartStore(state => state.addCart);
 
   const handleAddCartClick = () => {
-    const cartItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      mainImg: product.image_pair[0].thumb_image,
-      count: count,
-      totalPrice: Number(product.price) * count,
-    };
+    if (count > 0) {
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        mainImg: product.image_pair[0].thumb_image,
+        count: count,
+        totalPrice: Number(product.price) * count,
+      };
 
-    addCart(cartItem);
+      addCart(cartItem);
+    }
+    if (onAddCart) onAddCart();
   };
 
   return (
@@ -93,8 +101,25 @@ const ProductDesc = ({ product }: TProductDescProps) => {
       </div>
       <div className="prod-cart">
         <CountSetter count={count} setCount={setCount} />
-        <CartBtn product={product} count={count} />
+        <CartBtn
+          product={product}
+          count={count}
+          onAddCart={() => {
+            if (count === 0) {
+              setToast({
+                visible: true,
+                message: 'Please select at least one item.',
+              });
+            } else {
+              setToast({
+                visible: true,
+                message: 'Successfully added to your cart!',
+              });
+            }
+          }}
+        />
       </div>
+      <Toast message={toast.message} visible={toast.visible} />
     </div>
   );
 };

@@ -6,29 +6,34 @@ type CartState = {
   cart: TCartProduct[];
   addCart: (product: TCartProduct) => void;
   deleteCart: (id: string) => void;
+  cartCount: number;
 };
 
 export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       cart: [],
+      cartCount: 0,
       addCart: product => {
         const currentCart = get().cart;
         const existing = currentCart.find(item => item.id === product.id);
 
-        // 이미 상품이 들어있으면 수량만 업데이트
+        // 같은상품이 들어있으면 수량만 업데이트
         if (existing) {
           const updatedCart = currentCart.map(item =>
             item.id === product.id
               ? {
                   ...item,
                   mainImg: item.mainImg,
-                  count: item.count + 1,
-                  totalPrice: item.totalPrice,
+                  count: item.count + product.count,
+                  totalPrice: product.totalPrice,
                 }
               : item
           );
-          set({ cart: updatedCart });
+          set({
+            cart: updatedCart,
+            cartCount: updatedCart.reduce((acc, cur) => acc + cur.count, 0),
+          });
         } else {
           set({
             cart: [
