@@ -6,7 +6,7 @@ import { useState, useRef } from 'react';
 const NavBar = () => {
   const isMobile = useMediaQuery({ maxWidth: 825 });
   const [showCart, setShowCart] = useState(false);
-  const cartRef = useRef<HTMLDivElement>(null);
+  const cartRef = useRef<HTMLDivElement | null>(null);
 
   // 팝업 토글 함수
   const handleCartToggle = () => setShowCart(v => !v);

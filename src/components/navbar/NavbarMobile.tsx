@@ -19,13 +19,12 @@ interface NavbarMobileProps {
   showCart: boolean;
   onCartToggle: () => void;
   onCartClose: () => void;
-  cartRef: React.RefObject<HTMLDivElement>;
+  cartRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const NavbarMobile = ({
   showCart,
   onCartToggle,
-  onCartClose,
   cartRef,
 }: NavbarMobileProps) => {
   type MenuState = 'open' | 'closed' | 'closing';
