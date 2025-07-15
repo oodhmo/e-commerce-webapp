@@ -41,7 +41,7 @@ export const useCartStore = create<CartState>()(
               {
                 ...product,
                 mainImg: product.mainImg,
-                count: 1,
+                count: product.count,
                 totalPrice: Number(product.price),
               },
             ],
