@@ -106,9 +106,19 @@
           color: $primary-orange;
           cursor: pointer;
           transition: color 0.2s ease;
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          align-items: center;
 
           &:hover {
             color: hsl(26, 100%, 75%);
+          }
+        }
+
+        .plus {
+          svg {
+            margin-left: auto;
           }
         }
       }

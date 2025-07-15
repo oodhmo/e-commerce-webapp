@@ -5,7 +5,15 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr({
+      include: '**/*.svg?react',
+      // svgrOptions: {
+      //   icon: true,
+      // },
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'), // ✅ @ → src/

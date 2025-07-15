@@ -10,7 +10,7 @@ interface NavbarDesktopProps {
   showCart: boolean;
   onCartToggle: () => void;
   onCartClose: () => void;
-  cartRef: React.RefObject<HTMLDivElement>;
+  cartRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const NavbarDesktop = ({
