@@ -2,12 +2,18 @@
 
 `Typescript` `React` `React Router` `Vite` `Zustand` `SCSS`
 
+<br>
+
 🚀 Live Site URL: [E-commerce by oodhmo](https://sneakers-by-oodhmo.netlify.app/men/detail/sn-001)
 
 <img src="./readme-img/fe-logo.png" alt="로고" width="16"> Challenge Page: [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6)
 
+<br>
+
 > 🗒️ This README is written in Korean.  
 > For non-Korean readers, please use a browser translator (e.g. Google Translate) for best results.
+
+<br>
 
 프론트엔드 멘토 챌린지 기반으로 구현한 E-commerce 제품 상세 페이지입니다.
 
@@ -29,7 +35,11 @@
   - [Useful resources (참고 자료)](#useful-resources-참고-자료)
 - [🧠 Acknowledgments](#🧠-acknowledgments)
 
+<br>
+
 ## 🧭 Overview
+
+<br>
 
 ### The challenge
 
@@ -46,6 +56,8 @@ Users should be able to:
 
 ### Screenshot & Features
 
+<br>
+
 #### Responsive design
 
 ![responsive-design](./readme-img/decrease-width.gif)
@@ -55,7 +67,7 @@ Users should be able to:
 - Standart Desktop: 1148px ~ 1399px
 - XL Desktop: 1400px ⬆️
 
-#### Desktop
+#### -Desktop-
 
 <strong>Product Detail Page(상세 페이지)</strong>
 
@@ -95,7 +107,9 @@ Users should be able to:
 
 <br>
 
-#### Mobile
+#### -Mobile-
+
+<br>
 
 <strong>Product Detail Page(상세 페이지)</strong>
 
@@ -119,7 +133,7 @@ Users should be able to:
 
 - Smooth Transition States: 메뉴의 여닫힘을 자연스럽게 표현하기 위해 open, closing, closed의 세 가지 상태 타입을 정의하고, 각 상태에 따라 조건부 스타일링을 적용하여 부드러운 전환 구현
 
-- Delayed Unmounting Logic: setTimeout을 활용해 메뉴 닫힘 애니메이션이 완료된 후(250ms)에 실제 메뉴 데이터를 DOM에서 제거, 깔끔한 종료 UX 구현현
+- Delayed Unmounting Logic: setTimeout을 활용해 메뉴 닫힘 애니메이션이 완료된 후(250ms)에 실제 메뉴 데이터를 DOM에서 제거, 깔끔한 종료 UX 구현
 
 <br>
 
@@ -133,6 +147,8 @@ Users should be able to:
 - Reusable Popup Component: Desktop에서 사용하던 Popup 컴포넌트를 동일하게 재사용하여 코드 중복을 줄이고 UI 일관성 유지
 
 - Responsive Alignment: media query를 활용하여 화면 크기에 따라 위치 조정—Tablet 뷰포트에서는 오른쪽 정렬, Mobile 뷰포트에서는 중앙 정렬을 적용하여 기기별 최적화된 UX 구현
+
+<br>
 
 #### ETC
 
