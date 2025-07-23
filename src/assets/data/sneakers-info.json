@@ -56,6 +56,7 @@
     "price": "60.00",
     "discount": null,
     "original_price": null,
+    "gender": "men",
     "image_pair": [
       {
         "prod_image": "image-converse-1.png",
