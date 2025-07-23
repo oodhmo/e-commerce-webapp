@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import Home from './pages/Home';
 import Collections from './pages/Collections';
 import Men from './pages/Men';
 import Women from './pages/Women';
@@ -11,6 +12,7 @@ function App() {
   return (
     <MainLayout>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/collections" element={<Collections />} />
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
