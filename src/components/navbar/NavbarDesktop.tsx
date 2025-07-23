@@ -49,7 +49,7 @@ const NavbarDesktop = ({
           <div className="nav-lft">
             <div
               className="logo"
-              onClick={() => handleGoToPage('/collections')}
+              onClick={() => handleGoToPage('/')}
             >
               sneakers
             </div>

@@ -37,7 +37,10 @@ const NavbarMobile = ({
 
   const handleGoToPage = (page: string) => {
     navigate(page);
-    handleMenuClose();
+    // 메뉴가 열려있을 때만 닫기
+    if (menuState === 'open') {
+      handleMenuClose();
+    }
   };
 
   const handleMenuToggle = () => {
@@ -61,10 +64,7 @@ const NavbarMobile = ({
             <div className="menu-btn" onClick={handleMenuToggle}>
               <MenuIcon />
             </div>
-            <div
-              className="logo"
-              onClick={() => handleGoToPage('/collections')}
-            >
+            <div className="logo" onClick={() => handleGoToPage('/')}>
               sneakers
             </div>
           </div>
