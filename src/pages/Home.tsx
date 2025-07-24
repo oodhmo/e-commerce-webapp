@@ -3,7 +3,7 @@ import ProductSection from '@/components/home/ProductSection';
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       <HeroBanner />
       <ProductSection />
     </div>

@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as *;
+
 .hero-banner {
   position: relative;
   min-height: 100vh;
@@ -49,30 +51,21 @@
   }
 
   &__title {
-    font-size: 3.75rem;
+    font-size: 10rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
-    font-family: 'Kumbh Sans', sans-serif;
-
-    @media (min-width: 768px) {
-      font-size: 6rem;
-    }
+    line-height: 1;
   }
 
   &__highlight {
     display: block;
-    color: var(--color-primary);
+    color: $primary-orange;
   }
 
   &__subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 6rem;
     opacity: 0.9;
-
-    @media (min-width: 768px) {
-      font-size: 1.5rem;
-    }
   }
 
   &__buttons {
@@ -88,32 +81,22 @@
   }
 
   &__button {
-    font-family: 'Kumbh Sans', sans-serif;
-    font-size: 1.125rem;
+    cursor: pointer;
+    font-size: 1.8rem;
     padding: 1.5rem 2rem;
-    border-radius: 9999px;
+    border-radius: 30px;
     transition: all 0.3s ease;
+    border: none;
 
-    &--primary {
-      background-color: var(--color-primary);
-      color: var(--color-primary-foreground);
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    background-color: $primary-orange;
+    color: white;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
-      &:hover {
-        background-color: rgba(var(--color-primary-rgb), 0.9);
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-      }
-    }
-
-    &--outline {
-      border: 1px solid white;
-      color: white;
-      background-color: transparent;
-
-      &:hover {
-        background-color: white;
-        color: var(--color-primary);
-      }
+    &:hover {
+      background-color: white;
+      color: $primary-orange;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+        rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     }
   }
 
