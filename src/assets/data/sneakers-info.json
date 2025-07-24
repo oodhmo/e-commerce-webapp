@@ -6,7 +6,8 @@
     "price": "125.00",
     "discount": "50",
     "original_price": "250.00",
-    "gender": "unisex",
+    "gender": "men",
+    "view_count": 120,
     "image_pair": [
       {
         "prod_image": "image-product-1.jpg",
@@ -34,6 +35,7 @@
     "discount": "30",
     "original_price": "200.00",
     "gender": "women",
+    "view_count": 110,
     "image_pair": [
       {
         "prod_image": "image-green-1.png",
@@ -56,7 +58,8 @@
     "price": "60.00",
     "discount": null,
     "original_price": null,
-    "gender": "men",
+    "gender": "unisex",
+    "view_count": 100,
     "image_pair": [
       {
         "prod_image": "image-converse-1.png",
@@ -73,6 +76,34 @@
       {
         "prod_image": "image-converse-4.jpg",
         "thumb_image": "image-converse-4-thumbnail.jpg"
+      }
+    ]
+  },
+  {
+    "id": "sn-004",
+    "name": "Sunflare Limited Edition",
+    "description": "It  features an ultra-lightweight mesh upper for maximum breathability and reduced fatigue during long runs. Its responsive midsole and cushioned heel absorb impact, delivering smooth transitions with every stride. Reinforced arch support and slip-resistant outsoles ensure stability on both urban roads and track surfaces.",
+    "price": "105.00",
+    "discount": 30,
+    "original_price": "150.00",
+    "gender": "unisex",
+    "view_count": 115,
+    "image_pair": [
+      {
+        "prod_image": "image-runner-1.png",
+        "thumb_image": "image-runner-1-thumbnail.png"
+      },
+      {
+        "prod_image": "image-runner-2.png",
+        "thumb_image": "image-runner-2-thumbnail.png"
+      },
+      {
+        "prod_image": "image-runner-3.png",
+        "thumb_image": "image-runner-3-thumbnail.png"
+      },
+      {
+        "prod_image": "image-runner-4.png",
+        "thumb_image": "image-runner-4-thumbnail.png"
       }
     ]
   }
