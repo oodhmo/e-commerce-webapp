@@ -8,9 +8,10 @@ type BaseProductInfo = {
 
 export type TProductInfo = BaseProductInfo & {
   description: string;
-  discount: string;
-  original_price: string;
+  discount: string | number | null;
+  original_price: string | null;
   gender: string;
+  view_count: number;
   image_pair: TImagePairList;
 };
 
