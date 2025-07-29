@@ -6,7 +6,7 @@ main {
   position: relative;
   z-index: 2;
 
-  @include respond-to(mobile) {
+  @include respond-to(tablet) {
     padding-top: $navbar-height-mobile !important;
   }
 }

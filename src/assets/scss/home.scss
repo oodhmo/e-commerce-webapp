@@ -3,7 +3,7 @@
 .home {
   margin-top: -($navbar-height);
 
-  @include respond-to(mobile) {
+  @include respond-to(tablet) {
     margin-top: -($navbar-height-mobile);
   }
 }

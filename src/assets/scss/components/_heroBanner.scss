@@ -71,7 +71,7 @@
     margin-bottom: 4rem;
     opacity: 0.9;
 
-    @include respond-to(mobile) {
+    @include respond-to(tablet) {
       font-size: 2rem;
     }
   }

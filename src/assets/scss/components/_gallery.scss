@@ -188,7 +188,7 @@
       position: relative;
       border-radius: 0;
 
-      @include respond-to(mobile) {
+      @include respond-to(tablet) {
         height: 80vw;
         min-height: $min-width;
         max-height: 43rem;
