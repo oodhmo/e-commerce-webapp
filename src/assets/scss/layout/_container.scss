@@ -1,5 +1,16 @@
 @use '../abstracts' as *;
 
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  min-height: 0;
+}
+
 main {
   padding-top: $navbar-height;
   height: 100%;
