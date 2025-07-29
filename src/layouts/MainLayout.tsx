@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import NavBar from '@/components/navbar';
 import Footer from '@/components/Footer';
 
@@ -7,14 +6,11 @@ type Props = {
 };
 
 const MainLayout = ({ children }: Props) => {
-  const location = useLocation();
-  const isDetailPage = location.pathname.includes('/detail');
-
   return (
     <div className="main-layout">
       <NavBar />
       <main className="main-content">{children}</main>
-      {!isDetailPage && <Footer />}
+      <Footer />
     </div>
   );
 };

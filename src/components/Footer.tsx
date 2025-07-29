@@ -58,7 +58,7 @@ const Footer = () => {
         <p>
           {isDetailPage ? (
             <>
-              Designed based on{' '}
+              Design based on{' '}
               <a href="https://www.frontendmentor.io/home">Frontend Mentor</a> |
               App icon designed by{' '}
               <a href="https://www.frontendmentor.io/home">Frontend Mentor</a>{' '}
