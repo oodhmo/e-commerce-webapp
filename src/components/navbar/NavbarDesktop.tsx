@@ -27,7 +27,7 @@ const NavbarDesktop = ({
     navigate(page);
   };
 
-  // 바깥 클릭 시 팝업 닫기
+  // 바깥 클릭 시 팝업 닫는 로직
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (cartRef.current && !cartRef.current.contains(event.target as Node)) {

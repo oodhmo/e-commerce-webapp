@@ -8,7 +8,6 @@ import CloseBtnIcon from '@/components/icons/CloseBtnIcon';
 import { useCartStore } from '@/stores/useCartStore';
 import CartPopup from './CartPopup';
 
-// menuItems 타입 정의
 interface MenuItem {
   id: string;
   name: string;
@@ -37,7 +36,7 @@ const NavbarMobile = ({
 
   const handleGoToPage = (page: string) => {
     navigate(page);
-    // 메뉴가 열려있을 때만 닫기
+    
     if (menuState === 'open') {
       handleMenuClose();
     }

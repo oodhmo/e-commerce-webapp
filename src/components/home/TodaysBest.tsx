@@ -10,24 +10,22 @@ const TodaysBest = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { imageMap } = useImageLoader('product');
 
-  // 카테고리 변경 시 부드러운 전환 효과
   useEffect(() => {
     setIsTransitioning(true);
 
-    // 현재 스크롤 위치 저장
     const currentScrollY = window.scrollY;
 
     const timer = setTimeout(() => {
       setIsTransitioning(false);
 
-      // 레이아웃 변경 후 스크롤 위치 복원
+      // 레이아웃 변경 후 스크롤 위치 복원, transition 시간기다림
       requestAnimationFrame(() => {
         window.scrollTo({
           top: currentScrollY,
           behavior: 'smooth',
         });
       });
-    }, 300); // CSS transition 시간과 맞춤
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [selectedCategory]);

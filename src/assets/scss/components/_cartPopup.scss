@@ -130,7 +130,7 @@
   }
 }
 
-// 모바일 장바구니 팝업 스타일
+// 모바일 장바구니 팝업
 @include respond-to(tablet) {
   .cart-popup-wrap {
     position: relative;

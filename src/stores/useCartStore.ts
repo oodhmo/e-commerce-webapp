@@ -18,7 +18,7 @@ export const useCartStore = create<CartState>()(
         const currentCart = get().cart;
         const existing = currentCart.find(item => item.id === product.id);
 
-        // 같은상품이 들어있으면 수량만 업데이트
+        // 같은상품이 들어있으면 수량만 업데이트함
         if (existing) {
           const updatedCart = currentCart.map(item =>
             item.id === product.id
