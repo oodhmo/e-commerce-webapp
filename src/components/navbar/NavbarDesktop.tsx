@@ -43,21 +43,22 @@ const NavbarDesktop = ({
   }, [showCart, cartRef, onCartClose]);
 
   return (
-    <div id="navbar">
-      <div className="nav-container">
-        <div className="nav-content">
-          <div className="nav-lft">
-            <div
-              className="logo"
-              onClick={() => handleGoToPage('/')}
-            >
+    <div className="navbar">
+      <div className="navbar__container">
+        <div className="navbar__content">
+          <div className="navbar__left">
+            <div className="navbar__logo" onClick={() => handleGoToPage('/')}>
               sneakers
             </div>
-            <div className="menu">
-              <ul className="list">
+            <div className="navbar__menu">
+              <ul className="navbar__list">
                 {menuItems.map(item => {
                   return (
-                    <li key={item.id} onClick={() => handleGoToPage(item.url)}>
+                    <li
+                      key={item.id}
+                      className="navbar__item"
+                      onClick={() => handleGoToPage(item.url)}
+                    >
                       {item.name}
                     </li>
                   );
@@ -65,15 +66,20 @@ const NavbarDesktop = ({
               </ul>
             </div>
           </div>
-          <div className="nav-rgt">
-            <div className="cart" ref={cartRef}>
-              <span onClick={onCartToggle}>
+          <div className="navbar__right">
+            <div className="navbar__cart" ref={cartRef}>
+              <span className="navbar__cart-icon" onClick={onCartToggle}>
                 <CartIcon count={cartCount} />
               </span>
               {showCart && <CartPopup />}
             </div>
-            <div className="avatar">
-              <img src={avatar} alt="avatar" width="40" className="avatar" />
+            <div className="navbar__avatar">
+              <img
+                src={avatar}
+                alt="avatar"
+                width="40"
+                className="navbar__avatar-img"
+              />
             </div>
           </div>
         </div>

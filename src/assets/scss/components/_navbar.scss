@@ -1,7 +1,6 @@
 @use '../abstracts' as *;
 
-#navbar,
-#navbar-mobile {
+.navbar {
   width: 100%;
   min-width: $min-width;
   position: fixed;
@@ -14,42 +13,42 @@
   user-select: none;
   z-index: 3;
 
-  .nav-container {
+  &__container {
     width: 100%;
     height: 100%;
   }
 
-  .nav-content,
-  .nav-lft,
-  .nav-rgt,
-  .list,
-  li {
+  &__content,
+  &__left,
+  &__right,
+  &__list,
+  &__item {
     display: flex;
     align-items: center;
     height: 100%;
   }
 
-  .nav-lft,
-  .nav-rgt {
+  &__left,
+  &__right {
     flex-shrink: 0;
   }
 
-  .nav-lft {
-    .logo {
+  &__left {
+    .navbar__logo {
       font-weight: $fw-bold;
       font-size: 3rem;
     }
   }
 
-  .nav-rgt {
+  &__right {
     margin-left: auto;
 
-    .cart {
+    .navbar__cart {
       color: #69707d;
       margin-right: 4.5rem;
     }
 
-    .avatar {
+    .navbar__avatar-img {
       border-radius: 50%;
       transition: box-shadow 0.2s ease;
 
@@ -59,25 +58,24 @@
     }
   }
 
-  .logo,
-  li,
-  .avatar,
-  .menu-btn {
+  &__logo,
+  &__item,
+  &__avatar-img,
+  &__menu-btn {
     cursor: pointer;
   }
-}
 
-#navbar {
+  // 데스크톱 네비게이션
   height: $navbar-height;
 
-  .nav-container {
+  &__container {
     max-width: 1200px;
     border-bottom: 1px solid rgba(211, 211, 211, 0.575);
     margin: 0 8rem;
   }
 
-  .nav-lft {
-    .logo {
+  &__left {
+    .navbar__logo {
       font-size: 3rem;
       margin-right: 5rem;
 
@@ -86,12 +84,12 @@
       }
     }
 
-    .menu {
+    .navbar__menu {
       flex: 1 1 auto;
       overflow: hidden;
       height: 100%;
 
-      li {
+      .navbar__item {
         margin: 0 1.6rem;
         color: $neutral-grayish-blue;
         transition: box-shadow 0.2s ease;
@@ -107,43 +105,44 @@
     }
   }
 
-  .nav-rgt {
-    .cart {
+  &__right {
+    .navbar__cart {
       margin-right: 4.5rem;
       width: 2.2rem;
       height: 2.2rem;
     }
   }
-}
 
-#navbar-mobile {
-  height: $navbar-height-mobile;
+  // 모바일 네비게이션
+  &--mobile {
+    height: $navbar-height-mobile;
 
-  .nav-container {
-    max-width: $breakpoint-tablet;
-    margin: 0 3rem;
-    border-bottom: 1px solid rgba(211, 211, 211, 0.2);
-  }
-
-  .nav-lft {
-    gap: 2rem;
-  }
-
-  .nav-rgt {
-    .cart {
-      margin-right: 3rem;
-      width: 2.2rem;
-      height: 2.2rem;
+    .navbar__container {
+      max-width: $breakpoint-tablet;
+      margin: 0 3rem;
+      border-bottom: 1px solid rgba(211, 211, 211, 0.2);
     }
 
-    .avatar {
-      width: 3rem;
+    .navbar__left {
+      gap: 2rem;
+    }
+
+    .navbar__right {
+      .navbar__cart {
+        margin-right: 3rem;
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+
+      .navbar__avatar-img {
+        width: 3rem;
+      }
     }
   }
 }
 
-// 사이드 메뉴(모바일)
-.mobile-menu-overlay {
+// 모바일 메뉴 오버레이
+.navbar__mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -154,14 +153,15 @@
   opacity: 0;
   transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-.mobile-menu-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mobile-menu {
+// 모바일 메뉴
+.navbar__mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -174,14 +174,14 @@
   padding: 2.5rem 2rem 0 2rem;
   box-shadow: 2px 0 16px rgba(0, 0, 0, 0.08);
   animation: slideInMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.slide-in {
-  animation: slideInMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+  &--slide-in {
+    animation: slideInMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
 
-.slide-out {
-  animation: slideOutMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  &--slide-out {
+    animation: slideOutMenu 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
 }
 
 @keyframes slideInMenu {
@@ -202,7 +202,7 @@
   }
 }
 
-.close-btn {
+.navbar__close-btn {
   width: 3rem;
   background: none;
   border: none;
@@ -215,7 +215,7 @@
   cursor: pointer;
 }
 
-.mobile-menu-list {
+.navbar__mobile-list {
   list-style: none;
   padding-top: 70px;
   margin: 0;
@@ -224,18 +224,18 @@
   gap: 2.2rem;
 }
 
-.mobile-menu-list li {
+.navbar__mobile-item {
   font-size: 1.7rem;
   font-weight: 700;
   color: #222;
   cursor: pointer;
   transition: color 0.2s;
-}
 
-.mobile-menu-list li:hover {
-  color: $primary-orange;
-}
+  &:hover {
+    color: $primary-orange;
+  }
 
-.mobile-menu-list li.active {
-  color: $primary-orange;
+  &--active {
+    color: $primary-orange;
+  }
 }

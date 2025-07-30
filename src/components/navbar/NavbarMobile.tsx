@@ -36,7 +36,7 @@ const NavbarMobile = ({
 
   const handleGoToPage = (page: string) => {
     navigate(page);
-    
+
     if (menuState === 'open') {
       handleMenuClose();
     }
@@ -56,26 +56,31 @@ const NavbarMobile = ({
   };
 
   return (
-    <div id="navbar-mobile">
-      <div className="nav-container">
-        <div className="nav-content">
-          <div className="nav-lft">
-            <div className="menu-btn" onClick={handleMenuToggle}>
+    <div className="navbar navbar--mobile">
+      <div className="navbar__container">
+        <div className="navbar__content">
+          <div className="navbar__left">
+            <div className="navbar__menu-btn" onClick={handleMenuToggle}>
               <MenuIcon />
             </div>
-            <div className="logo" onClick={() => handleGoToPage('/')}>
+            <div className="navbar__logo" onClick={() => handleGoToPage('/')}>
               sneakers
             </div>
           </div>
-          <div className="nav-rgt">
-            <div className="cart-popup-wrap" ref={cartRef}>
-              <span className="cart" onClick={onCartToggle}>
+          <div className="navbar__right">
+            <div className="navbar__cart-popup-wrap" ref={cartRef}>
+              <span className="navbar__cart" onClick={onCartToggle}>
                 <CartIcon count={cartCount} />
               </span>
               {showCart && <CartPopup />}
             </div>
-            <div className="avatar">
-              <img src={avatar} alt="avatar" width="40" />
+            <div className="navbar__avatar">
+              <img
+                src={avatar}
+                alt="avatar"
+                width="40"
+                className="navbar__avatar-img"
+              />
             </div>
           </div>
         </div>
@@ -83,29 +88,35 @@ const NavbarMobile = ({
       {(menuState === 'open' || menuState === 'closing') && (
         <>
           <div
-            className={`mobile-menu-overlay${
-              menuState === 'open' ? ' open' : ''
+            className={`navbar__mobile-overlay${
+              menuState === 'open' ? ' navbar__mobile-overlay--open' : ''
             }`}
             onClick={handleMenuClose}
           />
           <nav
-            className={`mobile-menu ${
-              menuState === 'open' ? 'slide-in' : 'slide-out'
+            className={`navbar__mobile-menu ${
+              menuState === 'open'
+                ? 'navbar__mobile-menu--slide-in'
+                : 'navbar__mobile-menu--slide-out'
             }`}
           >
             <button
-              className="close-btn"
+              className="navbar__close-btn"
               onClick={handleMenuClose}
               aria-label="메뉴 닫기"
             >
               <CloseBtnIcon />
             </button>
-            <ul className="mobile-menu-list">
+            <ul className="navbar__mobile-list">
               {(menuItems as MenuItem[]).map(item => (
                 <li
                   key={item.id}
+                  className={`navbar__mobile-item ${
+                    location.pathname === item.url
+                      ? 'navbar__mobile-item--active'
+                      : ''
+                  }`}
                   onClick={() => handleGoToPage(item.url)}
-                  className={location.pathname === item.url ? 'active' : ''}
                 >
                   {item.name}
                 </li>

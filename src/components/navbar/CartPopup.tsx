@@ -16,26 +16,26 @@ const CartPopup = () => {
 
   return (
     <div className="cart-popup">
-      <div className="cart-header">Cart</div>
-      <div className="cart-content">
+      <div className="cart-popup__header">Cart</div>
+      <div className="cart-popup__content">
         {hasItems && cartItem ? (
           <>
             {cartItem.map((item: TCartProduct, idx: number) => (
-              <div className="cart-item" key={item.id}>
+              <div className="cart-popup__item" key={item.id}>
                 <img
                   src={cartImages[idx]}
                   alt={item.name}
-                  className="cart-thumb"
+                  className="cart-popup__thumb"
                 />
-                <div className="cart-info">
-                  <div className="cart-title">{item.name}</div>
-                  <div className="cart-price">
+                <div className="cart-popup__info">
+                  <div className="cart-popup__title">{item.name}</div>
+                  <div className="cart-popup__price">
                     ${item.price} x {item.count}{' '}
                     <b>${(Number(item.price) * item.count).toFixed(2)}</b>
                   </div>
                 </div>
                 <div
-                  className="cart-delete"
+                  className="cart-popup__delete"
                   onClick={() => deleteCart(item.id)}
                 >
                   <DeleteIcon />
@@ -43,10 +43,10 @@ const CartPopup = () => {
               </div>
             ))}
 
-            <button className="cart-checkout">Checkout</button>
+            <button className="cart-popup__checkout">Checkout</button>
           </>
         ) : (
-          <div className="cart-empty">Your cart is empty.</div>
+          <div className="cart-popup__empty">Your cart is empty.</div>
         )}
       </div>
     </div>
