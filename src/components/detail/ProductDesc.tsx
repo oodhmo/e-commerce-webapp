@@ -12,18 +12,18 @@ import Toast from '@/components/common/Toast';
 
 const CountSetter = ({ count, setCount }: TProductCountProps) => {
   return (
-    <div className="count-wrapper">
-      <div className="count">
+    <div className="product-desc__count-wrapper">
+      <div className="product-desc__count">
         <div
-          className="minus"
+          className="product-desc__minus"
           onClick={() => {
             if (count > 0) setCount(count - 1);
           }}
         >
           <MinusBtnIcon />
         </div>
-        <div className="num">{count}</div>
-        <div className="plus" onClick={() => setCount(count + 1)}>
+        <div className="product-desc__num">{count}</div>
+        <div className="product-desc__plus" onClick={() => setCount(count + 1)}>
           <PlusBtnIcon />
         </div>
       </div>
@@ -55,8 +55,11 @@ const CartBtn = ({
   };
 
   return (
-    <div className="cart-wrapper" onClick={() => handleAddCartClick()}>
-      <div className="cart-btn">
+    <div
+      className="product-desc__cart-wrapper"
+      onClick={() => handleAddCartClick()}
+    >
+      <div className="product-desc__cart-btn">
         <CartIcon />
         <span>Add to cart</span>
       </div>
@@ -80,26 +83,28 @@ const ProductDesc = ({ product }: TProductDescProps) => {
   }, [toast]);
 
   return (
-    <div className="prod-desc">
-      <div className="prod-info">
-        <div className="company">SNEAKER COMPANY</div>
-        <div className="name">{product.name}</div>
-        <div className="description">{product.description}</div>
-        <div className="price">
-          <div className="discount">
-            <div className="now">${product.price}</div>
+    <div className="product-desc">
+      <div className="product-desc__info">
+        <div className="product-desc__company">SNEAKER COMPANY</div>
+        <div className="product-desc__name">{product.name}</div>
+        <div className="product-desc__description">{product.description}</div>
+        <div className="product-desc__price">
+          <div className="product-desc__discount">
+            <div className="product-desc__now">${product.price}</div>
             {product.discount && (
-              <div className="chip">
-                <div className="percent">{product.discount}%</div>
+              <div className="product-desc__chip">
+                <div className="product-desc__percent">{product.discount}%</div>
               </div>
             )}
           </div>
           {product.discount && (
-            <div className="origin">${product.original_price}</div>
+            <div className="product-desc__origin">
+              ${product.original_price}
+            </div>
           )}
         </div>
       </div>
-      <div className="prod-cart">
+      <div className="product-desc__cart">
         <CountSetter count={count} setCount={setCount} />
         <CartBtn
           product={product}

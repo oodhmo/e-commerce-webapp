@@ -11,10 +11,10 @@ const DetailMobile = ({
   handleImageClick,
 }: TDetailCommonProps) => {
   return (
-    <div id="container-mobile">
-      <div id="content-mobile">
-        <div className="detail-mobile">
-          <div className="image-container-mobile">
+    <div className="detail-page detail-page--mobile">
+      <div className="detail-page__content">
+        <div className="detail-page__container">
+          <div className="detail-page__gallery">
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}
@@ -23,7 +23,7 @@ const DetailMobile = ({
               onClickImage={handleImageClick}
             />
           </div>
-          <div className="desc-container-mobile">
+          <div className="detail-page__description">
             <ProductDesc product={product} />
           </div>
         </div>

@@ -8,18 +8,18 @@ import ArrowButton from '@/components/detail/ArrowButton';
 
 const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
   return (
-    <div className="slide-wrapper">
+    <div className="gallery__slide-wrapper">
       <div
-        className="slider"
+        className="gallery__slider"
         style={{ transform: `translateX(-${idx * 100}%)` }}
       >
         {list.map((src, i) => (
-          <div className="slide" key={i}>
-            <img src={src} className="blur-bg" alt="" />
+          <div className="gallery__slide" key={i}>
+            <img src={src} className="gallery__blur-bg" alt="" />
             <img
               src={src}
               key={i}
-              className="prod"
+              className="gallery__product"
               alt=""
               onClick={() => onClickImage?.(i)}
             />
@@ -33,22 +33,24 @@ const ProdList = memo(({ list, idx, onClickImage }: TProductListProps) => {
 const ThumbList = memo(
   ({ list, currentIdx, setCurrentIdx }: TThumbListProps) => {
     return (
-      <div className="thumb-list">
+      <div className="gallery__thumb-list">
         {list.map((src, i) => {
           return (
             <div
               key={i}
-              className={`thumb-wrapper ${currentIdx === i ? 'active' : ''}`}
+              className={`gallery__thumb-wrapper ${
+                currentIdx === i ? 'gallery__thumb-wrapper--active' : ''
+              }`}
               onClick={() => setCurrentIdx && setCurrentIdx(i)}
             >
-              <img src={src} className="thumb" />
+              <img src={src} className="gallery__thumb" />
             </div>
           );
         })}
       </div>
     );
   }
-); 
+);
 
 const GalleryDesktop = ({
   prodImages,
@@ -73,9 +75,9 @@ const GalleryDesktop = ({
   };
 
   return (
-    <div id="image-list">
-      <div className="image-grid">
-        <div className="prod-container">
+    <div className="gallery">
+      <div className="gallery__container">
+        <div className="gallery__product-container">
           {showArrows && <ArrowButton direction="prev" onClick={handlePrev} />}
 
           <ProdList
@@ -86,7 +88,7 @@ const GalleryDesktop = ({
 
           {showArrows && <ArrowButton direction="next" onClick={handleNext} />}
         </div>
-        <div className="thumb-container">
+        <div className="gallery__thumb-container">
           <ThumbList
             list={thumbImages}
             currentIdx={currentIdx}

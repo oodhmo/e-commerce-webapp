@@ -14,10 +14,10 @@ const DetailDesktop = ({
   handleImageClick,
 }: TDetailCommonProps) => {
   return (
-    <div id="container">
-      <div id="content">
-        <div className="detail">
-          <div className="image-container">
+    <div className="detail-page">
+      <div className="detail-page__content">
+        <div className="detail-page__container">
+          <div className="detail-page__gallery">
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}
@@ -26,7 +26,7 @@ const DetailDesktop = ({
               onClickImage={handleImageClick}
             />
           </div>
-          <div className="desc-container">
+          <div className="detail-page__description">
             <ProductDesc product={product} />
           </div>
         </div>
