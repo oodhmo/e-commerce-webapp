@@ -130,8 +130,8 @@
   }
 }
 
-// 모바일 장바구니 팝업 스타일
-@include respond-to(mobile) {
+// 모바일 장바구니 팝업
+@include respond-to(tablet) {
   .cart-popup-wrap {
     position: relative;
     z-index: 1001;
@@ -186,7 +186,7 @@
     }
   }
 
-  @media (min-width: 465px) and (max-width: $breakpoint-mobile) {
+  @media (min-width: 465px) and (max-width: $breakpoint-tablet) {
     .cart-popup {
       left: auto !important;
       right: 2vw !important;

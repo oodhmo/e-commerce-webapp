@@ -7,7 +7,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   user-select: none;
@@ -119,7 +120,7 @@
   height: $navbar-height-mobile;
 
   .nav-container {
-    max-width: $breakpoint-mobile;
+    max-width: $breakpoint-tablet;
     margin: 0 3rem;
     border-bottom: 1px solid rgba(211, 211, 211, 0.2);
   }
@@ -141,7 +142,7 @@
   }
 }
 
-// 모바일 메뉴 오버레이
+// 사이드 메뉴(모바일)
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -160,7 +161,6 @@
   pointer-events: auto;
 }
 
-// 모바일 사이드 메뉴
 .mobile-menu {
   position: fixed;
   top: 0;

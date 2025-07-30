@@ -1,0 +1,115 @@
+@use '../abstracts/index' as *;
+
+.best-section__product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover .product-image img {
+    transform: scale(1.05);
+  }
+
+  .product-info {
+    padding: 1.5rem;
+
+    .product-name {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+
+      .current-price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $primary-orange;
+      }
+
+      .discount-badge {
+        background-color: $primary-pale-orange;
+        color: $primary-orange;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .original-price {
+        color: $neutral-grayish-blue;
+        text-decoration: line-through;
+        font-size: 1.5rem;
+        margin-left: 1rem;
+      }
+    }
+
+    .product-views {
+      font-size: 1.2rem;
+      color: $neutral-grayish-blue;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include respond-to(tablet) {
+  .best-section__product-card {
+    .product-image {
+      height: 230px;
+    }
+
+    .product-info {
+      padding: 1rem;
+
+      .product-name {
+        font-size: 2rem;
+      }
+
+      .product-price {
+        .current-price {
+          font-size: 1.7rem;
+        }
+      }
+    }
+  }
+}

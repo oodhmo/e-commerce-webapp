@@ -1,5 +1,16 @@
+@use 'footer';
+
+// common
+@use 'productCard';
+
+// Detail
 @use 'navbar';
 @use 'gallery';
 @use 'prodDesc';
 @use 'galleryPopup';
 @use 'cartPopup';
+
+// Home
+@use 'heroBanner';
+@use 'productSection';
+@use 'todaysBest';

@@ -1,4 +1,5 @@
 import NavBar from '@/components/navbar';
+import Footer from '@/components/Footer';
 
 type Props = {
   children: React.ReactNode;
@@ -6,10 +7,11 @@ type Props = {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <>
+    <div className="main-layout">
       <NavBar />
-      <main>{children}</main>
-    </>
+      <main className="main-content">{children}</main>
+      <Footer />
+    </div>
   );
 };
 

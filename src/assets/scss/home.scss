@@ -1,0 +1,9 @@
+@use './abstracts/index' as *;
+
+.home {
+  margin-top: -($navbar-height);
+
+  @include respond-to(tablet) {
+    margin-top: -($navbar-height-mobile);
+  }
+}

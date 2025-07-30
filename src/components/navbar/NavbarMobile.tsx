@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom'; // useNavigate,
+import { useNavigate, useLocation } from 'react-router-dom';
 import menuItems from '@/assets/data/menu-info.json';
 import CartIcon from '@/components/icons/CartIcon';
 import MenuIcon from '@/components/icons/MenuIcon';
@@ -8,7 +8,6 @@ import CloseBtnIcon from '@/components/icons/CloseBtnIcon';
 import { useCartStore } from '@/stores/useCartStore';
 import CartPopup from './CartPopup';
 
-// menuItems 타입 정의
 interface MenuItem {
   id: string;
   name: string;
@@ -32,13 +31,16 @@ const NavbarMobile = ({
   const cart = useCartStore(state => state.cart);
   const cartCount = cart.reduce((total, item) => total + item.count, 0);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
-  // const handleGoToPage = (page: string) => {
-  //   navigate(page);
-  //   handleMenuClose();
-  // };
+  const handleGoToPage = (page: string) => {
+    navigate(page);
+    
+    if (menuState === 'open') {
+      handleMenuClose();
+    }
+  };
 
   const handleMenuToggle = () => {
     if (menuState === 'closed' || menuState === 'closing') {
@@ -61,10 +63,7 @@ const NavbarMobile = ({
             <div className="menu-btn" onClick={handleMenuToggle}>
               <MenuIcon />
             </div>
-            <div
-              className="logo"
-              // onClick={() => handleGoToPage('/collections')}
-            >
+            <div className="logo" onClick={() => handleGoToPage('/')}>
               sneakers
             </div>
           </div>

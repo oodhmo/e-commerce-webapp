@@ -1,0 +1,31 @@
+@use '../abstracts/index' as *;
+
+.best-section {
+  padding: 10rem 0;
+  background-color: white;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 12rem;
+
+    h2 {
+      font-size: 4.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+  }
+
+  &__description {
+    font-size: 1.8rem;
+    color: $neutral-grayish-blue;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}

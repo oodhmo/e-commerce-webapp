@@ -28,7 +28,7 @@
   .company {
     color: $primary-orange;
 
-    @include respond-to(mobile) {
+    @include respond-to(tablet) {
       font-size: 1.4rem;
     }
   }
@@ -37,13 +37,13 @@
     font-size: 4rem;
     font-weight: $fw-bold;
 
-    @include respond-to(mobile) {
+    @include respond-to(tablet) {
       font-size: 3.4rem;
     }
   }
 
   .price {
-    @include respond-to(mobile) {
+    @include respond-to(tablet) {
       display: flex;
       align-items: center;
     }
@@ -148,7 +148,7 @@
       }
     }
 
-    @include respond-to(mobile) {
+    @include respond-to(tablet) {
       display: block;
 
       .count-wrapper,

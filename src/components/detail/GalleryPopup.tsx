@@ -13,7 +13,6 @@ const GalleryPopup = ({
 }: TGalleryPopupProps) => {
   const [selectedIdx, setSelectedIdx] = useState(currentIdx);
 
-  // 팝업이 열릴 때마다 currentIdx로 초기화
   useEffect(() => {
     if (isOpen) {
       setSelectedIdx(currentIdx);

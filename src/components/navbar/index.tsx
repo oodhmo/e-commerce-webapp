@@ -8,9 +8,7 @@ const NavBar = () => {
   const [showCart, setShowCart] = useState(false);
   const cartRef = useRef<HTMLDivElement | null>(null);
 
-  // 팝업 토글 함수
   const handleCartToggle = () => setShowCart(v => !v);
-  // 팝업 닫기 함수
   const handleCartClose = () => setShowCart(false);
 
   return isMobile ? (
