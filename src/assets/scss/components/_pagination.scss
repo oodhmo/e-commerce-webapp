@@ -1,0 +1,79 @@
+@use '../abstracts/index' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    padding: 1rem 2rem;
+  }
+
+  &__btn {
+    background: #f8f9fa;
+    color: $neutral-grayish-blue;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    &:hover:not(.disabled) {
+      background: #e9ecef;
+      color: #212529;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__number {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #495057;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover:not(.dots) {
+      background: #e9ecef;
+      color: #212529;
+    }
+
+    &.active {
+      background: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+
+    &.dots {
+      cursor: default;
+      background: transparent;
+      border: none;
+      width: auto;
+      height: auto;
+      padding: 0 0.5rem;
+    }
+  }
+}

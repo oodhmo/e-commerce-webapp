@@ -1,0 +1,111 @@
+.product-list {
+  width: 100%;
+
+  &__content {
+    width: 100%;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease-in-out;
+    min-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+
+    &.transitioning {
+      opacity: 0.7;
+      transform: translateY(10px);
+    }
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &-btn {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      color: #495057;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+
+      &:hover:not(.disabled) {
+        background: #e9ecef;
+        color: #212529;
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    &-numbers {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    &-number {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      color: #495057;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: #e9ecef;
+        color: #212529;
+      }
+
+      &.active {
+        background: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+    }
+  }
+}
