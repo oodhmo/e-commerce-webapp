@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import sneakersList from '@/assets/data/sneakers-info.json';
@@ -19,6 +19,11 @@ const ProductDetail = () => {
 
   const [isGalleryPopup, setIsGalleryPopup] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
+
+  // 페이지 진입 시 스크롤을 맨 위로 이동
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const handleImageClick = (idx: number) => {
     setCurrentIdx(idx);
