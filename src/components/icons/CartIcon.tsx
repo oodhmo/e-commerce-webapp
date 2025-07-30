@@ -6,10 +6,10 @@ interface CartIconProps {
 
 const CartIcon = ({ count }: CartIconProps) => {
   return (
-    <div className="cart-icon-container">
+    <div className="cart-icon">
       <CartSvg />
       {typeof count === 'number' && count > 0 && (
-        <span className="cart-badge">{count}</span>
+        <span className="cart-icon__badge">{count}</span>
       )}
     </div>
   );

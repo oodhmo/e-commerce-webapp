@@ -1,19 +1,24 @@
 @use '../abstracts' as *;
 
-#image-list {
+.gallery {
   width: 43rem;
   height: 100%;
   user-select: none;
-}
 
-.prod-container {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 100%;
+  &__container {
+    width: 100%;
+    height: 100%;
+  }
 
-  .arrow {
+  &__product-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  &__arrow {
     position: absolute;
     width: 5rem;
     height: 5rem;
@@ -22,12 +27,11 @@
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
     z-index: 2;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
-    &.prev {
+    &--prev {
       left: -3rem;
 
       svg {
@@ -35,7 +39,7 @@
       }
     }
 
-    &.next {
+    &--next {
       right: -3rem;
 
       svg {
@@ -44,7 +48,7 @@
     }
   }
 
-  .slide-wrapper {
+  &__slide-wrapper {
     width: 100%;
     height: 43rem;
     overflow: hidden;
@@ -54,74 +58,71 @@
     @include respond-to(desktop-sm) {
       height: 33rem;
     }
+  }
 
-    .slider {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      height: 100%;
-      width: 43rem;
+  &__slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 43rem;
+  }
 
-      .slide {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+  &__slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
 
-        .blur-bg {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          filter: blur(15px) brightness(0.7);
-          transform: scale(1.1);
-          z-index: 0;
-        }
+  &__blur-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px) brightness(0.7);
+    transform: scale(1.1);
+    z-index: 0;
+  }
 
-        .prod {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain;
-          position: relative;
-          z-index: 1;
-        }
-      }
+  &__product {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__thumb-container {
+    margin-top: 1.4rem;
+  }
+
+  &__thumb-list {
+    display: grid;
+    grid-template-columns: repeat(4, 9.5rem);
+    justify-content: space-between;
+    width: 100%;
+    max-width: 43rem;
+    cursor: pointer;
+
+    @include respond-to(desktop-sm) {
+      grid-template-columns: repeat(4, 7.3rem);
+      max-width: 33rem !important;
     }
   }
-}
 
-.thumb-container {
-  margin-top: 1.4rem;
-}
-
-.thumb-list {
-  display: grid;
-  grid-template-columns: repeat(4, 9.5rem);
-  justify-content: space-between;
-  width: 100%;
-  max-width: 43rem;
-  cursor: pointer;
-
-  @include respond-to(desktop-sm) {
-    grid-template-columns: repeat(4, 7.3rem);
-    max-width: 33rem !important;
-  }
-
-  .thumb-wrapper,
-  img {
-    border-radius: 10px;
-  }
-
-  .thumb-wrapper {
+  &__thumb-wrapper {
     position: relative;
     overflow: hidden;
     transition: box-shadow 0.3s ease;
+    border-radius: 10px;
 
     img {
       width: 100%;
+      border-radius: 10px;
     }
 
     &:hover {
@@ -142,47 +143,45 @@
     &:hover::after {
       background: rgba(255, 255, 255, 0.4);
     }
-  }
 
-  .active {
-    box-shadow: 0 0 0 3px $primary-orange;
+    &--active {
+      box-shadow: 0 0 0 3px $primary-orange;
 
-    &::after {
-      background: rgba(255, 255, 255, 0.4) !important;
+      &::after {
+        background: rgba(255, 255, 255, 0.4) !important;
+      }
     }
   }
-}
 
-.detail {
-  #image-list,
-  .slide-wrapper,
-  .slider {
-    @include respond-to(desktop-sm) {
-      width: 33rem !important;
+  &__thumb {
+    width: 100%;
+  }
+
+  // 데스크톱 갤러리 반응형
+  .detail-page__container & {
+    &__slide-wrapper,
+    &__slider {
+      @include respond-to(desktop-sm) {
+        width: 33rem !important;
+      }
     }
   }
-}
 
-// 모바일 갤러리
-.image-container-mobile {
-  width: 100%;
-  display: flex;
-  flex-shrink: 0;
-}
-
-.gallery-mobile {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-
-  .prod-container {
-    position: relative;
+  // 모바일 갤러리
+  &--mobile {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-shrink: 0;
 
-    .slide-wrapper {
+    .gallery__product-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery__slide-wrapper {
       width: 100%;
       overflow: hidden;
       position: relative;
@@ -193,49 +192,49 @@
         min-height: $min-width;
         max-height: 43rem;
       }
-
-      .slider {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        height: 100%;
-        width: 100%;
-
-        .slide {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          aspect-ratio: 4 / 3;
-
-          .blur-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: blur(15px) brightness(0.7);
-            transform: scale(1.1);
-            z-index: 0;
-          }
-
-          .prod {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            z-index: 1;
-          }
-        }
-      }
     }
 
-    .arrow-buttons {
+    .gallery__slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery__slide {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery__blur-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(15px) brightness(0.7);
+      transform: scale(1.1);
+      z-index: 0;
+    }
+
+    .gallery__product {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .gallery__arrow-buttons {
       position: absolute;
       top: 0;
       left: 0;
@@ -247,39 +246,39 @@
       padding: 0 1rem;
       pointer-events: none;
       z-index: 10;
+    }
 
-      .arrow {
-        pointer-events: auto;
-        width: 4rem;
-        height: 4rem;
-        background-color: white;
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        position: absolute;
+    .gallery__arrow {
+      pointer-events: auto;
+      width: 4rem;
+      height: 4rem;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: absolute;
 
-        &:hover {
-          transform: scale(1.1);
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
+
+      &--prev {
+        left: 2rem;
+        svg {
+          margin-right: 0.2rem;
         }
+      }
 
-        &.prev {
-          left: 2rem;
-          svg {
-            margin-right: 0.2rem;
-          }
-        }
-
-        &.next {
-          right: 2rem;
-          svg {
-            margin-left: 0.2rem;
-          }
+      &--next {
+        right: 2rem;
+        svg {
+          margin-left: 0.2rem;
         }
       }
     }

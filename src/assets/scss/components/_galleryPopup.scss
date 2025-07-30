@@ -1,4 +1,4 @@
-#gallery-popup {
+.gallery-popup {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
@@ -7,16 +7,12 @@
   align-items: center;
   z-index: 9999;
 
-  .prod-container {
-    cursor: auto;
-  }
-
-  .dialog-container {
-    .btn-container {
+  &__dialog {
+    .gallery-popup__close-container {
       display: flex;
       cursor: pointer;
 
-      .x-btn {
+      .gallery-popup__close-btn {
         margin-left: auto;
         width: 3rem;
         height: 3rem;
@@ -24,19 +20,19 @@
     }
   }
 
-  .popup-images {
-    #image-list {
+  &__content {
+    .gallery {
       width: 53rem !important;
 
-      .slide-wrapper {
+      .gallery__slide-wrapper {
         height: 53rem !important;
-
-        .slider {
-          width: 53rem !important;
-        }
       }
 
-      .thumb-container {
+      .gallery__slider {
+        width: 53rem !important;
+      }
+
+      .gallery__thumb-container {
         margin-top: 3rem !important;
         display: flex;
         justify-content: center;

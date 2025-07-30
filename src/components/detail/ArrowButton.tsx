@@ -7,7 +7,10 @@ interface ArrowButtonProps {
 }
 
 const ArrowButton = ({ direction, onClick }: ArrowButtonProps) => (
-  <div className={`${direction} arrow`} onClick={onClick}>
+  <div
+    className={`gallery__arrow gallery__arrow--${direction}`}
+    onClick={onClick}
+  >
     {direction === 'prev' ? <PreviousBtnIcon /> : <NextBtnIcon />}
   </div>
 );

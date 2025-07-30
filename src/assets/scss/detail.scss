@@ -1,6 +1,4 @@
 @use './abstracts/variables' as *;
 
-.detail {
-  display: flex;
-  justify-content: space-between;
-}
+// detail.scss는 이제 container.scss에서 처리되므로
+// 추가적인 detail 페이지 스타일만 여기에 정의

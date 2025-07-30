@@ -31,15 +31,18 @@ const GalleryPopup = ({
   if (!isOpen) return null;
 
   return createPortal(
-    <div id="gallery-popup">
-      <div className="dialog-container">
-        <div className="btn-container" onClick={() => onClose()}>
-          <span className="x-btn">
+    <div className="gallery-popup">
+      <div className="gallery-popup__dialog">
+        <div
+          className="gallery-popup__close-container"
+          onClick={() => onClose()}
+        >
+          <span className="gallery-popup__close-btn">
             <CloseBtnIcon />
           </span>
         </div>
-        <div className="popup-images">
-          <div className="image-container">
+        <div className="gallery-popup__content">
+          <div className="gallery-popup__gallery">
             <Gallery
               prodImages={prodImages}
               thumbImages={thumbImages}

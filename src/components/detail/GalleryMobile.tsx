@@ -4,15 +4,15 @@ import ArrowButton from '@/components/detail/ArrowButton';
 
 const ProdList = memo(({ list, idx }: TProductListProps) => {
   return (
-    <div className="slide-wrapper">
+    <div className="gallery__slide-wrapper">
       <div
-        className="slider"
+        className="gallery__slider"
         style={{ transform: `translateX(-${idx * 100}%)` }}
       >
         {list.map((src: string, i: number) => (
-          <div className="slide" key={i}>
-            <img src={src} className="blur-bg" alt="" />
-            <img src={src} key={i} className="prod" alt="" />
+          <div className="gallery__slide" key={i}>
+            <img src={src} className="gallery__blur-bg" alt="" />
+            <img src={src} key={i} className="gallery__product" alt="" />
           </div>
         ))}
       </div>
@@ -40,11 +40,11 @@ const GalleryMobile = (props: TGalleryProps) => {
   };
 
   return (
-    <div className="gallery-mobile">
-      <div className="prod-container">
+    <div className="gallery gallery--mobile">
+      <div className="gallery__product-container">
         <ProdList list={prodImages} idx={currentIdx} />
 
-        <div className="arrow-buttons">
+        <div className="gallery__arrow-buttons">
           <ArrowButton direction="prev" onClick={handlePrev} />
           <ArrowButton direction="next" onClick={handleNext} />
         </div>
