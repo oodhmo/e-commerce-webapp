@@ -113,3 +113,23 @@
     }
   }
 }
+
+.men-page {
+  .product-list {
+    &__grid {
+      min-height: 30rem !important;
+    }
+  }
+
+  .product-image {
+    height: 23rem !important;
+  }
+
+  .product-name {
+    font-size: 2.2rem !important;
+  }
+
+  .current-price {
+    font-size: 1.8rem !important;
+  }
+}

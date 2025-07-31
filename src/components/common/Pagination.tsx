@@ -60,7 +60,7 @@ const Pagination = ({
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          <PreviousBtnIcon /> Previous
+          <PreviousBtnIcon />
         </button>
 
         <div className="pagination__numbers">
@@ -85,7 +85,7 @@ const Pagination = ({
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          Next <NextBtnIcon />
+          <NextBtnIcon />
         </button>
       </div>
     </div>

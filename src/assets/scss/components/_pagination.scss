@@ -16,17 +16,19 @@
   }
 
   &__btn {
-    background: #f8f9fa;
+    background: #fff;
+    border: none;
     color: $neutral-grayish-blue;
     padding: 0.5rem 1rem;
-    border-radius: 25px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 0.9rem;
+    font-size: 2rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
 
     &:hover:not(.disabled) {
-      background: #e9ecef;
+      background: #fff;
       color: #212529;
     }
 
@@ -42,29 +44,29 @@
   }
 
   &__number {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background-color: #fff;
+    border: none;
     color: #495057;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
+    width: 4rem;
+    height: 4.4rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &:hover:not(.dots) {
-      background: #e9ecef;
-      color: #212529;
+      border-radius: 10px;
+      border: 2px solid $primary-orange;
+      background-color: $primary-orange;
+      color: #fff;
     }
 
     &.active {
-      background: #007bff;
-      color: #fff;
-      border-color: #007bff;
+      border-radius: 10px;
+      border: 1px solid $neutral-gray-border;
     }
 
     &.dots {
