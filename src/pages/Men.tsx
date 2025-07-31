@@ -14,7 +14,7 @@ const Men = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // 페이지 로드 시 transition
+    // 페이지 로드 시 transition 적용용
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
