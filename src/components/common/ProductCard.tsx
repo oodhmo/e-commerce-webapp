@@ -12,7 +12,7 @@ const ProductCard = ({ product, index = 0, imageMap }: ProductCardProps) => {
     <Link
       key={product.id}
       to={`/${product.gender.toLowerCase()}/detail/${product.id}`}
-      className="best-section__product-card"
+      className="product-card"
       style={{
         animationDelay: `${index * 0.1}s`,
         animationDuration: '0.5s',

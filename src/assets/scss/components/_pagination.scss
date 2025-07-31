@@ -1,0 +1,81 @@
+@use '../abstracts/index' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    padding: 1rem 2rem;
+  }
+
+  &__btn {
+    background: #fff;
+    border: none;
+    color: $neutral-grayish-blue;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    &:hover:not(.disabled) {
+      background: #fff;
+      color: #212529;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__number {
+    background-color: #fff;
+    border: none;
+    color: #495057;
+    width: 4rem;
+    height: 4.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover:not(.dots) {
+      border-radius: 10px;
+      border: 2px solid $primary-orange;
+      background-color: $primary-orange;
+      color: #fff;
+    }
+
+    &.active {
+      border-radius: 10px;
+      border: 1px solid $neutral-gray-border;
+    }
+
+    &.dots {
+      cursor: default;
+      background: transparent;
+      border: none;
+      width: auto;
+      height: auto;
+      padding: 0 0.5rem;
+    }
+  }
+}

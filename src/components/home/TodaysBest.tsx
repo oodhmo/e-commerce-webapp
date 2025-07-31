@@ -1,12 +1,14 @@
-import { useState, useMemo, useEffect } from 'react';
-import sneakersData from '../../assets/data/sneakers-info.json';
-import type { TProductInfo } from '../../types/product';
+import { useState, useEffect } from 'react';
 import { useImageLoader } from '../../hooks/useImageLoader';
+import { useProducts } from '../../hooks/useProducts';
+import type { TProductInfo } from '../../types/product';
 import ProductCard from '../common/ProductCard';
 
 const TodaysBest = () => {
-  const categories = ['ALL', 'MEN', 'WOMEN'];
-  const [selectedCategory, setSelectedCategory] = useState('ALL');
+  const categories = ['ALL', 'MEN', 'WOMEN'] as const;
+  const [selectedCategory, setSelectedCategory] = useState<
+    'ALL' | 'MEN' | 'WOMEN'
+  >('ALL');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { imageMap } = useImageLoader('product');
 
@@ -30,31 +32,7 @@ const TodaysBest = () => {
     return () => clearTimeout(timer);
   }, [selectedCategory]);
 
-  const filteredProducts = useMemo(() => {
-    let filtered;
-
-    switch (selectedCategory) {
-      case 'ALL':
-        filtered = sneakersData;
-        break;
-      case 'MEN':
-        filtered = sneakersData.filter(
-          product => product.gender === 'men' || product.gender === 'unisex'
-        );
-        break;
-      case 'WOMEN':
-        filtered = sneakersData.filter(
-          product => product.gender === 'women' || product.gender === 'unisex'
-        );
-        break;
-      default:
-        filtered = sneakersData;
-    }
-
-    return filtered
-      .sort((a: TProductInfo, b: TProductInfo) => b.view_count - a.view_count)
-      .slice(0, 6);
-  }, [selectedCategory]);
+  const filteredProducts = useProducts(selectedCategory, 6);
 
   return (
     <div className="best-section__today">

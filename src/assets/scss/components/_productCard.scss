@@ -1,6 +1,6 @@
 @use '../abstracts/index' as *;
 
-.best-section__product-card {
+.product-card {
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -93,7 +93,7 @@
 }
 
 @include respond-to(tablet) {
-  .best-section__product-card {
+  .product-card {
     .product-image {
       height: 230px;
     }
@@ -111,5 +111,25 @@
         }
       }
     }
+  }
+}
+
+.men-page {
+  .product-list {
+    &__grid {
+      min-height: 30rem !important;
+    }
+  }
+
+  .product-image {
+    height: 23rem !important;
+  }
+
+  .product-name {
+    font-size: 2.2rem !important;
+  }
+
+  .current-price {
+    font-size: 1.8rem !important;
   }
 }
