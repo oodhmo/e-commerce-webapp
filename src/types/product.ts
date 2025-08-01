@@ -13,6 +13,8 @@ export type TProductInfo = BaseProductInfo & {
   gender: string;
   view_count: number;
   image_pair: TImagePairList;
+  seasonal: string[];
+  style: string[];
 };
 
 export interface TCartProduct extends BaseProductInfo {

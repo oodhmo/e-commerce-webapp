@@ -12,9 +12,16 @@ const imageMaps = {
     import: 'default',
     as: 'url',
   }),
+  collection: import.meta.glob('../assets/images/collection/*.{jpg,png}', {
+    eager: true,
+    import: 'default',
+    as: 'url',
+  }),
 };
 
-export const useImageLoader = (type: 'product' | 'thumbnail') => {
+export const useImageLoader = (
+  type: 'product' | 'thumbnail' | 'collection'
+) => {
   const imageMap = useMemo(() => {
     const images = imageMaps[type];
 
@@ -57,3 +64,10 @@ export const useCartImage = (
 
   return { cartImages };
 };
+
+// Collections 페이지에서 사용할 이미지만 필터링해서 import
+// export const useCollectionImage = (colMap: Record<string, string>) => {
+//   const colImages = Object.values(colMap).map(url => url);
+
+//   return { colImages };
+// };

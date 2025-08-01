@@ -1,0 +1,41 @@
+{
+  "seasonal": [
+    {
+      "id": "spring",
+      "title": "Spring 2025 Collection",
+      "image": "summer.jpg"
+    },
+    {
+      "id": "summer",
+      "title": "Summer Vibes Collection",
+      "image": "summer.jpg"
+    },
+    {
+      "id": "fall-winter",
+      "title": "Fall/Winter Collection",
+      "image": "summer.jpg"
+    }
+  ],
+  "style": [
+    {
+      "id": "street",
+      "title": "Street Style",
+      "image": "summer.jpg"
+    },
+    {
+      "id": "minimal",
+      "title": "Minimal Chic",
+      "image": "summer.jpg"
+    },
+    {
+      "id": "retro",
+      "title": "Retro Vibes",
+      "image": "summer.jpg"
+    },
+    {
+      "id": "sporty",
+      "title": "Sporty & Active",
+      "image": "summer.jpg"
+    }
+  ]
+}
