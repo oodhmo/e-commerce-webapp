@@ -8,6 +8,8 @@
     "original_price": "250.00",
     "gender": "men",
     "view_count": 120,
+    "seasonal": ["fall-winter"],
+    "style": ["street", "minimal"],
     "image_pair": [
       {
         "prod_image": "image-product-1.jpg",
@@ -36,6 +38,8 @@
     "original_price": "200.00",
     "gender": "women",
     "view_count": 110,
+    "seasonal": ["spring", "fall-winter"],
+    "style": ["retro", "street", "sporty"],
     "image_pair": [
       {
         "prod_image": "image-green-1.png",
@@ -60,6 +64,8 @@
     "original_price": null,
     "gender": "unisex",
     "view_count": 100,
+    "seasonal": ["spring", "summer"],
+    "style": ["retro", "street", "minimal"],
     "image_pair": [
       {
         "prod_image": "image-converse-1.png",
@@ -88,6 +94,8 @@
     "original_price": "150.00",
     "gender": "unisex",
     "view_count": 115,
+    "seasonal": ["summer"],
+    "style": ["sporty"],
     "image_pair": [
       {
         "prod_image": "image-runner-1.png",
@@ -104,6 +112,60 @@
       {
         "prod_image": "image-runner-4.png",
         "thumb_image": "image-runner-4-thumbnail.png"
+      }
+    ]
+  },
+  {
+    "id": "sn-005",
+    "name": "Amber Brown Edition",
+    "description": "Minimalist design crafted from premium brown leather. Its clean silhouette and neutral tones make them versatile for any casual or smart-casual outfit. Set on a comfortable sole, they balance modern style with everyday wearability.",
+    "price": "110.00",
+    "discount": null,
+    "original_price": null,
+    "gender": "men",
+    "view_count": 95,
+    "seasonal": ["fall-winter"],
+    "style": ["minimal", "retro"],
+    "image_pair": [
+      {
+        "prod_image": "image-brown-1.png",
+        "thumb_image": "image-brown-1-thumbnail.png"
+      }
+    ]
+  },
+  {
+    "id": "sn-006",
+    "name": "Urban White Kicks",
+    "description": "It features a clean white base accented with soft pastel pink and sky blue. Its minimalist design blends sporty and casual elements, perfect for everyday wear. Lightweight and versatile, it brings a fresh, playful vibe to any outfit.",
+    "price": "110.00",
+    "discount": 27,
+    "original_price": "150.00",
+    "gender": "women",
+    "view_count": 113,
+    "seasonal": ["spring", "summer"],
+    "style": ["minimal", "retro"],
+    "image_pair": [
+      {
+        "prod_image": "image-cotton-1.png",
+        "thumb_image": "image-cotton-1-thumbnail.png"
+      }
+    ]
+  },
+  {
+    "id": "sn-007",
+    "name": "Sport Skywave Runner",
+    "description": "Lightweight and breathable design for all-day comfort. Soft sky-blue tones paired with sleek gray accents for a modern look. Perfect balance of style and performance, ideal for casual or sporty wear.",
+    "price": "140.00",
+    "discount": 22,
+    "original_price": "180.00",
+    "gender": "unisex",
+    "view_count": 107,
+    "seasonal": ["spring", "summer"],
+    "style": ["minimal", "sporty"],
+    "image_pair": [
+      {
+        "prod_image": "image-sky-1.png",
+        "thumb_image": "image-sky-1-thumbnail.png"
       }
     ]
   }
