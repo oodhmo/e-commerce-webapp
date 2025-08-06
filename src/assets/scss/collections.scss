@@ -1,32 +1,130 @@
 @use './abstracts/index' as *;
 
-#collections {
-  min-width: $min-width;
+.collections {
+  min-height: 100vh;
+  padding: 3rem 0;
+  background-color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 
-  .banner {
-    width: 100%;
-    min-width: 42.4rem;
-    height: 40vw;
-    min-height: 37rem;
-    max-height: 43rem;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__main {
+    padding-top: 2rem;
+    padding-bottom: 1.6rem;
+  }
+
+  &__container {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 0.4rem;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: $fw-bold;
+    color: $neutral-dark-blue;
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+
+  &__section {
+    margin-bottom: 3.6rem;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease 0.4s forwards;
+
+    &-title {
+      font-size: 2.4rem;
+      font-weight: $fw-bold;
+      color: $neutral-dark-blue;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @include respond-to(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(mobile) {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__tile {
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
+    transform: translateZ(0);
+    transition: all 0.5s ease;
+    border-radius: 2rem;
 
-    img {
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    &-image {
       width: 100%;
       height: 100%;
-      min-height: 100%;
       object-fit: cover;
-      object-position: center center;
-      display: block;
+      transition: transform 0.7s ease;
 
-      
+      .collections__tile:hover & {
+        transform: scale(1.1);
+      }
     }
+
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+
+      background: linear-gradient(to top, rgba(83, 83, 83, 0.7), transparent);
+    }
+
+    &-content {
+      position: absolute;
+      bottom: 1.5rem; // bottom-6
+      left: 1.5rem;
+      right: 1.5rem;
+    }
+
+    &-title {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+
+      .collections__tile:hover & {
+        transform: translateY(-4px);
+      }
+
+      @include respond-to(mobile) {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
